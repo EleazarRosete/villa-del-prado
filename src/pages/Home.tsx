@@ -7,7 +7,7 @@ interface GalleryItem { img: string; label: string; }
 
 // ─── SLIDES ─────────────────────────────────────────────────────────────────
 const SLIDES = [
-   { img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=240&q=70', label: 'Nipa Cabanas', sub: 'Beachfront Huts', accent: '#fcd34d' },
+  { img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=240&q=70', label: 'Nipa Cabanas', sub: 'Beachfront Huts', accent: '#fcd34d' },
   { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=240&q=70', label: 'White Sand Beach', sub: 'Sariaya, Quezon', accent: '#5eead4' },
   { img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=240&q=70', label: 'Resort Pool', sub: 'With Water Slide', accent: '#93c5fd' },
   { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=240&q=70', label: 'White Sand Beach', sub: 'Sariaya, Quezon', accent: '#5eead4' },
@@ -23,7 +23,6 @@ const BRAND = {
   primary: '#0077a8',
   primaryDark: '#005f8a',
   primaryLight: '#e0f2fa',
-  primaryMid: '#0077a820',
   primaryGlow: 'rgba(0,119,168,0.25)',
 };
 
@@ -43,8 +42,6 @@ const GALLERY: GalleryItem[] = [
   { img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&q=85', label: 'Fresh Dining' },
   { img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1400&q=85', label: 'Beachfront Huts' },
 ];
-
-
 
 // ─── SCROLL REVEAL ────────────────────────────────────────────────────────────
 function useScrollReveal() {
@@ -74,7 +71,7 @@ function RoomModal({ room, onClose }: { room: Room | null; onClose: () => void }
     }}>
       <style>{`
         @media (min-width: 600px) {
-          .room-modal-wrap { !important; max-width: 580px !important; margin: 24px !important; align-self: center !important; }
+          .room-modal-wrap { max-width: 580px !important; margin: 24px !important; align-self: center !important; }
           .room-modal-img  { height: 260px !important; }
         }
         @media (min-width: 1024px) {
@@ -84,36 +81,29 @@ function RoomModal({ room, onClose }: { room: Room | null; onClose: () => void }
       `}</style>
 
       <div onClick={e => e.stopPropagation()} className="room-modal-wrap" style={{
-        background: 'white', width: '100%',
-        overflow: 'hidden',
+        background: 'white', width: '100%', overflow: 'hidden',
         boxShadow: '0 -8px 60px rgba(0,0,0,.25)',
         animation: 'modalPop .35s cubic-bezier(.16,1,.3,1) both',
         maxHeight: '92vh', display: 'flex', flexDirection: 'column',
       }}>
-
         {/* Image */}
         <div className="room-modal-img" style={{ position: 'relative', height: 210, flexShrink: 0 }}>
           <img src={room.img} alt={room.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,.65) 0%, transparent 60%)' }} />
-          {/* Close */}
           <button onClick={onClose} style={{
-            position: 'absolute', top: 14, right: 14,
-            width: 34, height: 34,
+            position: 'absolute', top: 14, right: 14, width: 34, height: 34,
             background: 'rgba(255,255,255,.9)', border: 'none', cursor: 'pointer',
             fontSize: 18, color: '#444', display: 'flex', alignItems: 'center', justifyContent: 'center',
             boxShadow: '0 2px 8px rgba(0,0,0,.15)',
           }}>×</button>
-          {/* Tag badge */}
           <span style={{
             position: 'absolute', top: 14, left: 14,
             background: BRAND.primary, color: 'white',
             fontSize: 8, fontWeight: 900, letterSpacing: '.2em', textTransform: 'uppercase',
             padding: '5px 12px',
           }}>{room.tag}</span>
-          {/* Room name */}
           <h3 style={{
-            position: 'absolute', bottom: 14, left: 18,
-            color: 'white', margin: 0,
+            position: 'absolute', bottom: 14, left: 18, color: 'white', margin: 0,
             fontSize: 'clamp(18px, 4vw, 24px)', fontWeight: 800, lineHeight: 1.1,
           }}>{room.name}</h3>
         </div>
@@ -121,40 +111,28 @@ function RoomModal({ room, onClose }: { room: Room | null; onClose: () => void }
         {/* Content */}
         <div style={{ padding: 'clamp(18px,4vw,28px)', overflowY: 'auto', flexGrow: 1 }}>
           <p style={{ fontSize: 'clamp(12px,1.3vw,14px)', color: 'rgba(0,0,0,.48)', lineHeight: 1.75, fontWeight: 300, margin: '0 0 18px' }}>{room.desc}</p>
-
-          {/* Amenity chips */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 20 }}>
             {[['🛏️', room.beds], ['👥', room.guests], ['❄️', 'Air conditioned']].map(([icon, text]) => (
               <div key={text as string} style={{
-                display: 'flex', alignItems: 'center', gap: 7,
-                background: '#f5f3ee', 
-                padding: '7px 14px',
-                fontSize: 'clamp(11px,1.2vw,13px)', color: 'rgba(0,0,0,.6)', fontWeight: 500,
+                display: 'flex', alignItems: 'center', gap: 7, background: '#f5f3ee',
+                padding: '7px 14px', fontSize: 'clamp(11px,1.2vw,13px)', color: 'rgba(0,0,0,.6)', fontWeight: 500,
               }}>
                 <span>{icon}</span><span>{text}</span>
               </div>
             ))}
           </div>
-
-          {/* Price + CTA */}
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            paddingTop: 18, borderTop: '1px solid rgba(0,0,0,.08)',
-            flexWrap: 'wrap', gap: 12,
+            paddingTop: 18, borderTop: '1px solid rgba(0,0,0,.08)', flexWrap: 'wrap', gap: 12,
           }}>
             <div>
               <span style={{ fontSize: 'clamp(22px,4vw,30px)', fontWeight: 900, color: BRAND.primary }}>{room.price}</span>
               <span style={{ fontSize: 12, color: 'rgba(0,0,0,.35)', marginLeft: 5 }}>/ night</span>
             </div>
-            <Link to="/booking" onClick={onClose} style={{
-              display: 'inline-flex', alignItems: 'center',
-              background: `linear-gradient(to bottom right, ${BRAND.primary}, ${BRAND.primaryDark})`,
-              color: 'white', textDecoration: 'none',
-              fontSize: 10, fontWeight: 800, letterSpacing: '.18em', textTransform: 'uppercase',
-              padding: 'clamp(10px,1.5vw,13px) clamp(20px,3vw,28px)',
-              boxShadow: `0 4px 18px ${BRAND.primaryGlow}`,
-              whiteSpace: 'nowrap',
-            }}>Book Now ✦</Link>
+            {/* Book Now — transparent bg, blue border, blue text; hover = light blue fill */}
+            <Link to="/booking" onClick={onClose} className="btn-outline" style={{ fontSize: 10 }}>
+              Book Now →
+            </Link>
           </div>
         </div>
       </div>
@@ -214,7 +192,7 @@ function RingCarousel({ active, onNext, accent, isMobile }: { active: number; on
           aria-label={`Next: ${nextSlide.label}`}>
           <img key={`next-${nextIdx}`} src={nextSlide.thumb} alt={nextSlide.label} className="w-full h-full object-cover" style={{ animation: 'thumbSlideIn .5s cubic-bezier(.16,1,.3,1) both' }} />
           <div className="absolute inset-0 bg-black/25 group-hover:bg-black/5 transition-colors" />
-          <div className="absolute bottom-1 right-1 text-[7px] font-bold tracking-wider uppercase" style={{ color: 'rgba(255,255,255,.5)' }}>next ›</div>
+          <div className="absolute bottom-1 right-1 text-[7px] font-bold tracking-wider uppercase" style={{ color: 'rgba(255,255,255,.5)' }}>next →</div>
         </button>
       </div>
       <div className="flex items-center gap-4 pt-1.5" style={{ borderTop: '1px solid rgba(255,255,255,.12)' }}>
@@ -229,12 +207,12 @@ function RingCarousel({ active, onNext, accent, isMobile }: { active: number; on
   );
 }
 
-// ─── GALLERY CAROUSEL (WHEEL / ROULETTE STYLE) ────────────────────────────────
+// ─── GALLERY CAROUSEL ────────────────────────────────────────────────────────
 function GalleryCarousel() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
-  const [displayIdx, setDisplayIdx] = useState(0); // the index actually shown
+  const [displayIdx, setDisplayIdx] = useState(0);
   const autoRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
@@ -242,13 +220,9 @@ function GalleryCarousel() {
 
   const startAuto = useCallback(() => {
     if (autoRef.current) clearInterval(autoRef.current);
-    autoRef.current = setInterval(() => {
-      setAnimating(true);
-      setDirection('next');
-    }, 5000);
+    autoRef.current = setInterval(() => { setAnimating(true); setDirection('next'); }, 5000);
   }, []);
 
-  // When animating triggers, after 600ms commit the new index
   useEffect(() => {
     if (!animating) return;
     const t = setTimeout(() => {
@@ -262,96 +236,67 @@ function GalleryCarousel() {
     return () => clearTimeout(t);
   }, [animating, direction, G]);
 
-  useEffect(() => {
-    startAuto();
-    return () => { if (autoRef.current) clearInterval(autoRef.current); };
-  }, [startAuto]);
+  useEffect(() => { startAuto(); return () => { if (autoRef.current) clearInterval(autoRef.current); }; }, [startAuto]);
 
   const navigate = useCallback((dir: 'next' | 'prev') => {
     if (animating) return;
-    setDirection(dir);
-    setAnimating(true);
-    startAuto();
+    setDirection(dir); setAnimating(true); startAuto();
   }, [animating, startAuto]);
 
   const goTo = useCallback((idx: number) => {
     if (animating || idx === current) return;
     setDirection(idx > current ? 'next' : 'prev');
     setAnimating(true);
-    // Immediately set target so bg fades
     setDisplayIdx(idx);
-    setTimeout(() => {
-      setCurrent(idx);
-      setAnimating(false);
-    }, 600);
+    setTimeout(() => { setCurrent(idx); setAnimating(false); }, 600);
     startAuto();
   }, [animating, current, startAuto]);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  };
+  const handleTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; touchStartY.current = e.touches[0].clientY; };
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null || touchStartY.current === null) return;
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     const dy = e.changedTouches[0].clientY - touchStartY.current;
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) navigate(dx < 0 ? 'next' : 'prev');
-    touchStartX.current = null;
-    touchStartY.current = null;
+    touchStartX.current = null; touchStartY.current = null;
   };
 
   const prevIdx = (current - 1 + G) % G;
   const nextIdx = (current + 1) % G;
-
-  // During animation, the "pending" next card
   const pendingIdx = direction === 'next' ? nextIdx : prevIdx;
 
   return (
-    <div
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20, width: '100%' }}
-    >
-      {/* ══ Main stage ══ */}
-      <div style={{
-        position: 'relative',
-        width: '100%',
-        overflow: 'hidden',
-        height: 'clamp(340px, 52vw, 580px)',
-        perspective: '1400px',
-        background: '#0a0f1a',
-      }}>
+    <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20, width: '100%' }}>
 
-        {/* ── Crossfade BG layers ── */}
+      {/* Main stage — increased height by ~30vh */}
+      <div style={{
+        position: 'relative', width: '100%', overflow: 'hidden',
+        height: 'clamp(520px, 82vw, 860px)', perspective: '1400px', background: '#0a0f1a',
+      }}>
+        {/* BG crossfade layers */}
         {GALLERY.map((item, i) => (
           <div key={i} style={{
             position: 'absolute', inset: 0,
-            backgroundImage: `url(${item.img})`,
-            backgroundSize: 'cover', backgroundPosition: 'center',
+            backgroundImage: `url(${item.img})`, backgroundSize: 'cover', backgroundPosition: 'center',
             opacity: i === displayIdx ? 1 : 0,
             transition: 'opacity 0.9s cubic-bezier(0.4,0,0.2,1)',
-            zIndex: 0,
-            filter: 'brightness(0.32) saturate(0.6)',
-            transform: 'scale(1.04)',
+            zIndex: 0, filter: 'brightness(0.32) saturate(0.6)', transform: 'scale(1.04)',
           }} />
         ))}
 
-        {/* ── Atmospheric overlay ── */}
+        {/* Atmospheric overlay */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
           background: `radial-gradient(ellipse 70% 80% at 50% 110%, ${BRAND.primary}22 0%, transparent 65%), radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.6) 100%)`,
         }} />
 
-        {/* ── Counter + label top-left ── */}
+        {/* Counter + label */}
         <div key={`lbl-${current}`} style={{
           position: 'absolute', top: 22, left: 26, zIndex: 10,
-          animation: 'galLabelUp .45s cubic-bezier(.16,1,.3,1) both',
-          pointerEvents: 'none',
+          animation: 'galLabelUp .45s cubic-bezier(.16,1,.3,1) both', pointerEvents: 'none',
         }}>
-          <div style={{
-            fontSize: 9, fontWeight: 800, letterSpacing: '.28em', textTransform: 'uppercase',
-            color: `${BRAND.primary}cc`, marginBottom: 5,
-          }}>
+          <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.28em', textTransform: 'uppercase', color: `${BRAND.primary}cc`, marginBottom: 5 }}>
             {String(current + 1).padStart(2, '0')} <span style={{ color: 'rgba(255,255,255,.15)' }}>/</span> {String(G).padStart(2, '0')}
           </div>
           <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: '.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,.75)' }}>
@@ -359,100 +304,56 @@ function GalleryCarousel() {
           </div>
         </div>
 
-        {/* ── Three-card wheel ── */}
+        {/* Three-card wheel */}
         <div style={{ position: 'absolute', inset: '6% 4%', zIndex: 5 }}>
-
-          {/* PREV card */}
-          <div
-            onClick={() => navigate('prev')}
-            style={{
-              position: 'absolute',
-              width: '30%', height: '82%',
-              top: '9%', left: '0%',
-              overflow: 'hidden', cursor: 'pointer',
-              transform: animating && direction === 'next'
-                ? 'translateX(-30%) rotateY(-42deg) scale(0.78)'
-                : 'translateX(0%) rotateY(-22deg) scale(0.9)',
-              opacity: animating && direction === 'next' ? 0 : 0.6,
-              zIndex: 2,
-              boxShadow: '0 16px 48px rgba(0,0,0,0.55)',
-              transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease',
-            }}>
-            <img src={GALLERY[prevIdx].img} alt={GALLERY[prevIdx].label}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          {/* PREV */}
+          <div onClick={() => navigate('prev')} style={{
+            position: 'absolute', width: '30%', height: '82%', top: '9%', left: '0%',
+            overflow: 'hidden', cursor: 'pointer',
+            transform: animating && direction === 'next' ? 'translateX(-30%) rotateY(-42deg) scale(0.78)' : 'translateX(0%) rotateY(-22deg) scale(0.9)',
+            opacity: animating && direction === 'next' ? 0 : 0.6,
+            zIndex: 2, boxShadow: '0 16px 48px rgba(0,0,0,0.55)',
+            transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease',
+          }}>
+            <img src={GALLERY[prevIdx].img} alt={GALLERY[prevIdx].label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,10,20,0.35)' }} />
-            {/* left edge glow */}
             <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to right, ${BRAND.primary}18, transparent 60%)` }} />
           </div>
 
-          {/* NEXT card */}
-          <div
-            onClick={() => navigate('next')}
-            style={{
-              position: 'absolute',
-              width: '30%', height: '82%',
-              top: '9%', right: '0%', left: 'auto',
-              overflow: 'hidden', cursor: 'pointer',
-              transform: animating && direction === 'prev'
-                ? 'translateX(30%) rotateY(42deg) scale(0.78)'
-                : 'translateX(0%) rotateY(22deg) scale(0.9)',
-              opacity: animating && direction === 'prev' ? 0 : 0.6,
-              zIndex: 2,
-              boxShadow: '0 16px 48px rgba(0,0,0,0.55)',
-              transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease',
-            }}>
-            <img src={GALLERY[nextIdx].img} alt={GALLERY[nextIdx].label}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          {/* NEXT */}
+          <div onClick={() => navigate('next')} style={{
+            position: 'absolute', width: '30%', height: '82%', top: '9%', right: '0%', left: 'auto',
+            overflow: 'hidden', cursor: 'pointer',
+            transform: animating && direction === 'prev' ? 'translateX(30%) rotateY(42deg) scale(0.78)' : 'translateX(0%) rotateY(22deg) scale(0.9)',
+            opacity: animating && direction === 'prev' ? 0 : 0.6,
+            zIndex: 2, boxShadow: '0 16px 48px rgba(0,0,0,0.55)',
+            transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease',
+          }}>
+            <img src={GALLERY[nextIdx].img} alt={GALLERY[nextIdx].label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,10,20,0.35)' }} />
-            {/* right edge glow */}
             <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to left, ${BRAND.primary}18, transparent 60%)` }} />
           </div>
 
-          {/* CENTER card — animating: show pendingIdx flying in */}
+          {/* CENTER */}
           <div style={{
-            position: 'absolute',
-            width: '50%', height: '100%',
-            top: 0, left: '50%',
+            position: 'absolute', width: '50%', height: '100%', top: 0, left: '50%',
             transform: animating
-              ? direction === 'next'
-                ? 'translateX(-50%) rotateY(-8deg) scale(0.95)'
-                : 'translateX(-50%) rotateY(8deg) scale(0.95)'
+              ? direction === 'next' ? 'translateX(-50%) rotateY(-8deg) scale(0.95)' : 'translateX(-50%) rotateY(8deg) scale(0.95)'
               : 'translateX(-50%) rotateY(0deg) scale(1)',
-            opacity: 1,
-            zIndex: 3,
-            overflow: 'hidden',
+            opacity: 1, zIndex: 3, overflow: 'hidden',
             boxShadow: `0 28px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06), 0 0 40px ${BRAND.primary}22`,
             transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1), box-shadow 0.6s ease',
           }}>
-            <img
-              src={animating ? GALLERY[pendingIdx].img : GALLERY[current].img}
+            <img src={animating ? GALLERY[pendingIdx].img : GALLERY[current].img}
               alt={animating ? GALLERY[pendingIdx].label : GALLERY[current].label}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-
-            {/* Bottom gradient */}
-            <div style={{
-              position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%',
-              background: 'linear-gradient(to bottom, transparent, rgba(0,8,20,0.85))',
-            }} />
-
-            {/* Blue accent line top */}
-            <div style={{
-              position: 'absolute', top: 0, left: 0, right: 0, height: 3,
-              background: `linear-gradient(to right, transparent, ${BRAND.primary}, transparent)`,
-              opacity: 0.7,
-            }} />
-
-            {/* Label on current card */}
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%', background: 'linear-gradient(to bottom, transparent, rgba(0,8,20,0.85))' }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(to right, transparent, ${BRAND.primary}, transparent)`, opacity: 0.7 }} />
             <div key={`center-lbl-${current}`} style={{
               position: 'absolute', bottom: 20, left: 20, right: 20,
               animation: animating ? 'none' : 'galLabelUp .4s cubic-bezier(.16,1,.3,1) both',
             }}>
-              <div style={{
-                fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase',
-                color: `${BRAND.primary}dd`, marginBottom: 4,
-              }}>
-                Villa Del Prado
-              </div>
+              <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase', color: `${BRAND.primary}dd`, marginBottom: 4 }}>Villa Del Prado</div>
               <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.92)' }}>
                 {animating ? GALLERY[pendingIdx].label : GALLERY[current].label}
               </div>
@@ -460,83 +361,60 @@ function GalleryCarousel() {
           </div>
         </div>
 
-        {/* ── Arrow buttons ── */}
+        {/* Arrow buttons — styled like ArrowBtn (white bg, blue border, hover fills blue) */}
         {(['prev', 'next'] as const).map(dir => (
           <button key={dir} onClick={() => navigate(dir)} style={{
             position: 'absolute', top: '50%',
             [dir === 'prev' ? 'left' : 'right']: 14,
             transform: 'translateY(-50%)',
-            zIndex: 9, width: 38, height: 38, 
-            background: 'rgba(255,255,255,.08)',
-            border: `1px solid ${BRAND.primary}55`,
-            color: 'rgba(255,255,255,.7)', fontSize: 20, cursor: 'pointer',
+            zIndex: 9, width: 44, height: 44,
+            background: 'white',
+            border: `1.5px solid ${BRAND.primary}`,
+            color: BRAND.primary, fontSize: 16, cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             backdropFilter: 'blur(12px)',
-            transition: 'background .2s ease, border-color .2s ease, box-shadow .2s ease',
+            boxShadow: `0 4px 18px ${BRAND.primaryGlow}`,
+            transition: 'background .2s ease, color .2s ease, box-shadow .2s ease',
+            fontWeight: 700,
           }}
             onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = `${BRAND.primary}33`;
-              (e.currentTarget as HTMLElement).style.borderColor = BRAND.primary;
-              (e.currentTarget as HTMLElement).style.boxShadow = `0 0 16px ${BRAND.primaryGlow}`;
+              (e.currentTarget as HTMLElement).style.background = BRAND.primary;
+              (e.currentTarget as HTMLElement).style.color = 'white';
+              (e.currentTarget as HTMLElement).style.boxShadow = `0 0 20px ${BRAND.primaryGlow}`;
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,.08)';
-              (e.currentTarget as HTMLElement).style.borderColor = `${BRAND.primary}55`;
-              (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+              (e.currentTarget as HTMLElement).style.background = 'white';
+              (e.currentTarget as HTMLElement).style.color = BRAND.primary;
+              (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 18px ${BRAND.primaryGlow}`;
             }}>
-            {dir === 'prev' ? '‹' : '›'}
+            {dir === 'prev' ? '←' : '→'}
           </button>
         ))}
 
-        {/* ── Swipe hint ── */}
+        {/* Swipe hint — arrow updated */}
         <div style={{
           position: 'absolute', bottom: 16, right: 20, zIndex: 9,
           fontSize: 8, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase',
           color: `${BRAND.primary}88`, pointerEvents: 'none',
-        }}>Swipe ↔</div>
+        }}>Swipe →</div>
       </div>
 
-      {/* ══ Controls row ══ */}
+      {/* Controls row */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-
-        {/* Progress pills */}
         <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
           {GALLERY.map((_, i) => (
             <button key={i} onClick={() => goTo(i)} style={{
               width: i === current ? 24 : 6, height: 5,
-              background: i === current
-                ? `linear-gradient(to right, ${BRAND.primary}, ${BRAND.primaryDark})`
-                : 'rgba(0,0,0,.12)',
+              background: i === current ? `linear-gradient(to right, ${BRAND.primary}, ${BRAND.primaryDark})` : 'rgba(0,0,0,.12)',
               border: 'none', cursor: 'pointer', padding: 0,
               transition: 'all 0.45s cubic-bezier(0.25,1,0.5,1)',
               boxShadow: i === current ? `0 2px 8px ${BRAND.primaryGlow}` : 'none',
             }} />
           ))}
         </div>
-
-        {/* View All Photos */}
-        <Link to="/gallery" style={{
-          fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase',
-          color: 'rgba(0,0,0,.32)', textDecoration: 'none',
-          display: 'inline-flex', alignItems: 'center', gap: 7,
-          padding: '9px 22px', border: '1px solid rgba(0,0,0,.1)',
-          transition: 'all .22s ease',
-        }}
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.color = BRAND.primary;
-            el.style.borderColor = BRAND.primary;
-            el.style.background = `${BRAND.primary}08`;
-            el.style.boxShadow = `0 2px 16px ${BRAND.primaryGlow}`;
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.color = 'rgba(0,0,0,.32)';
-            el.style.borderColor = 'rgba(0,0,0,.1)';
-            el.style.background = 'transparent';
-            el.style.boxShadow = 'none';
-          }}>
-          View All Photos ↗
+        {/* View All Photos — consistent arrow → */}
+        <Link to="/gallery" className="btn-outline" style={{ fontSize: 9 }}>
+          View All Photos →
         </Link>
       </div>
     </div>
@@ -545,39 +423,14 @@ function GalleryCarousel() {
 
 // ─── AMENITIES EXPAND CARDS ──────────────────────────────────────────────────
 const AM_CARDS = [
-  {
-    id: 'water',
-    label: 'Beach & Water',
-    headline: 'Where the\nSea Begins.',
-    desc: 'Immerse yourself in 500m of pristine white sand, a resort pool with water slide, kiddie pool, kayaking, jet ski rentals, and guided boat tours along the Sariaya coastline.',
-    img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=85',
-  },
-  {
-    id: 'sports',
-    label: 'Sports & Rec',
-    headline: 'Play Hard.\nRest Easy.',
-    desc: 'Stay active with beach volleyball, basketball, fishing with local guides, scenic jogging paths, guided sunrise spots, and bike rentals to explore the resort grounds.',
-    img: 'https://images.unsplash.com/photo-1530053969600-caed2596d242?w=900&q=85',
-  },
-  {
-    id: 'dining',
-    label: 'Dining & Nights',
-    headline: 'Flavors by\nthe Shore.',
-    desc: 'Savor Filipino and international cuisine at our beachside restaurant, sip cocktails at the beach bar, enjoy weekend live music, videoke nights, and open-air BBQ sessions.',
-    img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85',
-  },
-  {
-    id: 'events',
-    label: 'Events',
-    headline: 'Every\nOccasion.',
-    desc: 'From intimate beachfront weddings and elegant debut celebrations to corporate team buildings and family reunions — every event is crafted with care and coastal charm.',
-    img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=85',
-  },
+  { id: 'water', label: 'Beach & Water', headline: 'Where the\nSea Begins.', desc: 'Immerse yourself in 500m of pristine white sand, a resort pool with water slide, kiddie pool, kayaking, jet ski rentals, and guided boat tours along the Sariaya coastline.', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=85' },
+  { id: 'sports', label: 'Sports & Rec', headline: 'Play Hard.\nRest Easy.', desc: 'Stay active with beach volleyball, basketball, fishing with local guides, scenic jogging paths, guided sunrise spots, and bike rentals to explore the resort grounds.', img: 'https://images.unsplash.com/photo-1530053969600-caed2596d242?w=900&q=85' },
+  { id: 'dining', label: 'Dining & Nights', headline: 'Flavors by\nthe Shore.', desc: 'Savor Filipino and international cuisine at our beachside restaurant, sip cocktails at the beach bar, enjoy weekend live music, videoke nights, and open-air BBQ sessions.', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85' },
+  { id: 'events', label: 'Events', headline: 'Every\nOccasion.', desc: 'From intimate beachfront weddings and elegant debut celebrations to corporate team buildings and family reunions — every event is crafted with care and coastal charm.', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=85' },
 ];
 
 function AmenitiesSection() {
   const [expanded, setExpanded] = useState<string | null>('water');
-  const toggle = (id: string) => setExpanded(id);
 
   return (
     <section style={{ background: '#edeae3', padding: 'clamp(48px,8vw,80px) 0' }}>
@@ -603,12 +456,8 @@ function AmenitiesSection() {
             <p style={{ fontSize: 13, color: 'rgba(0,0,0,.45)', fontWeight: 300, lineHeight: 1.75, marginBottom: 20 }}>
               From sunrise swims to candlelit dinners — every moment at Villa Del Prado is designed to be remembered.
             </p>
-            <Link to="/amenities"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: '1px solid rgba(0,0,0,.2)', color: 'rgba(0,0,0,.55)', fontSize: 10, fontWeight: 800, letterSpacing: '.18em', textTransform: 'uppercase', padding: '12px 24px', textDecoration: 'none', transition: 'all .25s ease' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,0,0,.06)'; (e.currentTarget as HTMLElement).style.color = '#000'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = 'rgba(0,0,0,.55)'; }}>
-              View All Amenities ✦
-            </Link>
+            {/* Arrow → consistent with rest of site */}
+            <Link to="/amenities" className="btn-outline">View All Amenities →</Link>
           </div>
         </div>
 
@@ -617,24 +466,21 @@ function AmenitiesSection() {
             const isOpen = expanded === card.id;
             const isTop = idx % 2 === 0;
             return (
-              <div key={card.id} onClick={() => toggle(card.id)}
+              <div key={card.id} onClick={() => setExpanded(card.id)}
                 className={`am-card${isOpen ? ' open' : ''}`}
                 style={{
                   position: 'relative', overflow: 'hidden', cursor: 'pointer',
                   flex: isOpen ? '3.4' : '1', minWidth: 0,
                   alignSelf: isTop ? 'flex-start' : 'flex-end',
-                  height: '90%',
-                  marginTop: isTop ? '5%' : 0,
-                  marginBottom: isTop ? 0 : '5%',
+                  height: '90%', marginTop: isTop ? '5%' : 0, marginBottom: isTop ? 0 : '5%',
                   transition: 'flex 0.9s cubic-bezier(0.25, 1, 0.5, 1)',
                 }}>
-                <img src={card.img} alt={card.label}
-                  style={{
-                    position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
-                    transition: 'transform 0.9s cubic-bezier(0.25, 1, 0.5, 1), filter 0.7s ease',
-                    transform: isOpen ? 'scale(1.05)' : 'scale(1.0)',
-                    filter: isOpen ? 'brightness(.55)' : 'brightness(.42) saturate(.75)',
-                  }} />
+                <img src={card.img} alt={card.label} style={{
+                  position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
+                  transition: 'transform 0.9s cubic-bezier(0.25, 1, 0.5, 1), filter 0.7s ease',
+                  transform: isOpen ? 'scale(1.05)' : 'scale(1.0)',
+                  filter: isOpen ? 'brightness(.55)' : 'brightness(.42) saturate(.75)',
+                }} />
                 <div style={{
                   position: 'absolute', inset: 0,
                   background: isOpen
@@ -642,6 +488,7 @@ function AmenitiesSection() {
                     : 'linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 60%)',
                   transition: 'background 0.7s ease',
                 }} />
+                {/* Collapsed state */}
                 <div style={{
                   position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column',
                   justifyContent: 'flex-end', alignItems: 'center', padding: '0 0 24px 0', gap: 12,
@@ -649,8 +496,10 @@ function AmenitiesSection() {
                   pointerEvents: isOpen ? 'none' : 'auto',
                 }}>
                   <span style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)', fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase', color: 'rgba(255,255,255,.5)' }}>{card.label}</span>
+                  {/* + icon kept as requested */}
                   <div style={{ width: 28, height: 28, border: '1px solid rgba(255,255,255,.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,.7)', fontSize: 16, fontWeight: 300, flexShrink: 0 }}>+</div>
                 </div>
+                {/* Expanded content */}
                 <div style={{
                   position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
                   padding: 'clamp(16px, 2.5vw, 36px)',
@@ -673,40 +522,35 @@ function AmenitiesSection() {
 
 // ─── GUEST STORIES DATA ──────────────────────────────────────────────────────
 const GUEST_REVIEWS = [
-  { name: 'Maria Santos', date: 'July 20, 2025', platform: 'Booking.com', avatar: 'MS', avatarBg: '#0077a8', quote: "The most relaxing beach trip we've ever had! Kids absolutely loved the pool slide and the beach was pristine. Staff were very helpful with instructions and incredibly responsive to any questions. Would wholeheartedly recommend to everyone!", rating: 5 },
-  { name: 'John Reyes', date: 'May 27, 2025', platform: 'Booking.com', avatar: 'JR', avatarBg: '#005f8a', quote: "Absolutely Wonderful! 🌟 The Villa was exactly what my family and I had all hoped for — a spacious, well-equipped house set in beautiful grounds. Couldn't have been more perfect for our group getaway!", rating: 5 },
-  { name: 'Megan Cruz', date: 'May 18, 2025', platform: 'Booking.com', avatar: 'MC', avatarBg: '#0099cc', quote: "I booked Villa Del Prado for my sister's bachelorette party with a group of 18 guests, and it was absolutely perfect for us. The house, garden, and beachfront made every moment magical.", rating: 5 },
-  { name: 'Georgia Lim', date: 'May 5, 2025', platform: 'Booking.com', avatar: 'GL', avatarBg: '#004f72', quote: "Dan was a super host and was there if I needed anything, and incredibly helpful in the run up to the trip. We used Dan's recommendation of the Luxury Private Chef which was amazing. The house itself was stunning.", rating: 5 },
-  { name: 'Ana Reyes', date: 'April 12, 2025', platform: 'Booking.com', avatar: 'AR', avatarBg: '#0077a8', quote: "Perfect venue for our company team building! Great facilities, amazing beach, and outstanding food. Our whole team had a blast and we're already planning our return trip next year.", rating: 5 },
-  { name: 'Carlo Mendoza', date: 'March 28, 2025', platform: 'Booking.com', avatar: 'CM', avatarBg: '#005f8a', quote: "We celebrated our anniversary here and it was absolutely magical. Woke up to the sound of waves every morning. The nipa hut cabana was so cozy and the sunsets were breathtaking. 10/10 experience!", rating: 5 },
-  { name: 'Lisa Tan', date: 'March 14, 2025', platform: 'Booking.com', avatar: 'LT', avatarBg: '#0099cc', quote: "Brought our whole barkada for a long weekend and everyone loved it. The pool with the water slide was a highlight — even the adults couldn't stop going on it. Clean, beautiful, and great value!", rating: 5 },
-  { name: 'Rico dela Cruz', date: 'Feb 22, 2025', platform: 'Booking.com', avatar: 'RC', avatarBg: '#004f72', quote: "Fantastic resort just a few hours from Manila. The beachfront location is stunning and the staff made every request feel effortless. We'll definitely be coming back every summer from now on.", rating: 5 },
-  { name: 'Patrice Villanueva', date: 'Feb 8, 2025', platform: 'Booking.com', avatar: 'PV', avatarBg: '#0077a8', quote: "Hosted our family reunion here and it was beyond expectations. The family suite comfortably fit everyone, the food was amazing, and having the beach right at our doorstep made it truly special.", rating: 5 },
-  { name: 'Jenna Bautista', date: 'Jan 19, 2025', platform: 'Booking.com', avatar: 'JB', avatarBg: '#005f8a', quote: "Such a hidden gem in Quezon! The resort has a really authentic Filipino vibe with the nipa huts but with all the modern comforts you need. The sunrise views from our balcony were absolutely unforgettable.", rating: 5 },
+  { name: 'Maria Santos',       date: 'July 20, 2025',  platform: 'Booking.com', avatar: 'MS', avatarBg: '#0077a8', quote: "The most relaxing beach trip we've ever had! Kids absolutely loved the pool slide and the beach was pristine. Staff were very helpful with instructions and incredibly responsive to any questions. Would wholeheartedly recommend to everyone!", rating: 5 },
+  { name: 'John Reyes',         date: 'May 27, 2025',   platform: 'Booking.com', avatar: 'JR', avatarBg: '#005f8a', quote: "Absolutely Wonderful! 🌟 The Villa was exactly what my family and I had all hoped for — a spacious, well-equipped house set in beautiful grounds. Couldn't have been more perfect for our group getaway!", rating: 5 },
+  { name: 'Megan Cruz',         date: 'May 18, 2025',   platform: 'Booking.com', avatar: 'MC', avatarBg: '#0099cc', quote: "I booked Villa Del Prado for my sister's bachelorette party with a group of 18 guests, and it was absolutely perfect for us. The house, garden, and beachfront made every moment magical.", rating: 5 },
+  { name: 'Georgia Lim',        date: 'May 5, 2025',    platform: 'Booking.com', avatar: 'GL', avatarBg: '#004f72', quote: "Dan was a super host and was there if I needed anything, and incredibly helpful in the run up to the trip. We used Dan's recommendation of the Luxury Private Chef which was amazing. The house itself was stunning.", rating: 5 },
+  { name: 'Ana Reyes',          date: 'April 12, 2025', platform: 'Booking.com', avatar: 'AR', avatarBg: '#0077a8', quote: "Perfect venue for our company team building! Great facilities, amazing beach, and outstanding food. Our whole team had a blast and we're already planning our return trip next year.", rating: 5 },
+  { name: 'Carlo Mendoza',      date: 'March 28, 2025', platform: 'Booking.com', avatar: 'CM', avatarBg: '#005f8a', quote: "We celebrated our anniversary here and it was absolutely magical. Woke up to the sound of waves every morning. The nipa hut cabana was so cozy and the sunsets were breathtaking. 10/10 experience!", rating: 5 },
+  { name: 'Lisa Tan',           date: 'March 14, 2025', platform: 'Booking.com', avatar: 'LT', avatarBg: '#0099cc', quote: "Brought our whole barkada for a long weekend and everyone loved it. The pool with the water slide was a highlight — even the adults couldn't stop going on it. Clean, beautiful, and great value!", rating: 5 },
+  { name: 'Rico dela Cruz',     date: 'Feb 22, 2025',   platform: 'Booking.com', avatar: 'RC', avatarBg: '#004f72', quote: "Fantastic resort just a few hours from Manila. The beachfront location is stunning and the staff made every request feel effortless. We'll definitely be coming back every summer from now on.", rating: 5 },
+  { name: 'Patrice Villanueva', date: 'Feb 8, 2025',    platform: 'Booking.com', avatar: 'PV', avatarBg: '#0077a8', quote: "Hosted our family reunion here and it was beyond expectations. The family suite comfortably fit everyone, the food was amazing, and having the beach right at our doorstep made it truly special.", rating: 5 },
+  { name: 'Jenna Bautista',     date: 'Jan 19, 2025',   platform: 'Booking.com', avatar: 'JB', avatarBg: '#005f8a', quote: "Such a hidden gem in Quezon! The resort has a really authentic Filipino vibe with the nipa huts but with all the modern comforts you need. The sunrise views from our balcony were absolutely unforgettable.", rating: 5 },
 ];
 
-// ─── ARROW BUTTON (for review slider) ───────────────────────────────────────
+// ─── ARROW BUTTON (guest stories) ────────────────────────────────────────────
 function ArrowBtn({ dir, disabled, onClick }: { dir: 'prev' | 'next'; disabled: boolean; onClick: () => void }) {
   const isPrev = dir === 'prev';
   return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      style={{
-        position: 'absolute',
-        [isPrev ? 'left' : 'right']: 14,
-        top: '50%', transform: 'translateY(-50%)',
-        zIndex: 10,
-        width: 44, height: 44, 
-        border: `1.5px solid ${disabled ? 'rgba(0,0,0,.13)' : BRAND.primary}`,
-        background: disabled ? 'rgba(245,243,238,0.85)' : 'white',
-        color: disabled ? 'rgba(0,0,0,.2)' : BRAND.primary,
-        fontSize: 18, cursor: disabled ? 'default' : 'pointer',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        boxShadow: disabled ? 'none' : `0 4px 18px ${BRAND.primaryGlow}`,
-        transition: 'all .22s ease',
-        backdropFilter: 'blur(8px)',
-      }}
+    <button onClick={onClick} disabled={disabled} style={{
+      position: 'absolute',
+      [isPrev ? 'left' : 'right']: 14,
+      top: '50%', transform: 'translateY(-50%)',
+      zIndex: 10, width: 44, height: 44,
+      border: `1.5px solid ${disabled ? 'rgba(0,0,0,.13)' : BRAND.primary}`,
+      background: disabled ? 'rgba(245,243,238,0.85)' : 'white',
+      color: disabled ? 'rgba(0,0,0,.2)' : BRAND.primary,
+      fontSize: 16, cursor: disabled ? 'default' : 'pointer',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700,
+      boxShadow: disabled ? 'none' : `0 4px 18px ${BRAND.primaryGlow}`,
+      transition: 'all .22s ease', backdropFilter: 'blur(8px)',
+    }}
       onMouseEnter={e => { if (!disabled) { const el = e.currentTarget as HTMLElement; el.style.background = BRAND.primary; el.style.color = 'white'; }}}
       onMouseLeave={e => { if (!disabled) { const el = e.currentTarget as HTMLElement; el.style.background = 'white'; el.style.color = BRAND.primary; }}}
     >{isPrev ? '←' : '→'}</button>
@@ -720,7 +564,6 @@ function GuestStoriesSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [visibleCards, setVisibleCards] = useState(3);
 
-  // Responsive: detect how many cards fit
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
@@ -734,7 +577,6 @@ function GuestStoriesSection() {
   const VISIBLE = visibleCards;
   const TOTAL_PAGES = Math.ceil(GUEST_REVIEWS.length / VISIBLE);
   const clampedPage = Math.min(page, TOTAL_PAGES - 1);
-
   const prev = () => setPage(p => Math.max(0, p - 1));
   const next = () => setPage(p => Math.min(TOTAL_PAGES - 1, p + 1));
 
@@ -756,13 +598,7 @@ function GuestStoriesSection() {
 
   return (
     <section style={{ background: '#f5f3ee', padding: 'clamp(48px,8vw,72px) 0 clamp(48px,8vw,80px)' }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-        .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.12) !important; }
-        .review-card { transition: transform .25s ease, box-shadow .25s ease; }
-      `}</style>
       <div style={{ maxWidth: 1380, margin: '0 auto', padding: '0 5%' }}>
-
         {/* Header */}
         <div className="sr" style={{ marginBottom: 'clamp(24px,4vw,40px)' }}>
           <h2 style={{
@@ -779,31 +615,21 @@ function GuestStoriesSection() {
         <div className="sr" style={{ position: 'relative' }} ref={containerRef}>
           <ArrowBtn dir="prev" disabled={clampedPage === 0} onClick={prev} />
           <ArrowBtn dir="next" disabled={clampedPage >= TOTAL_PAGES - 1} onClick={next} />
-
-          <div
-            style={{ overflow: 'hidden', padding: '12px clamp(48px,5vw,68px)' }}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
+          <div style={{ overflow: 'hidden', padding: '12px clamp(48px,5vw,68px)' }}
+            onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
             <div style={{
               display: 'flex', gap: 14,
               transform: `translateX(calc(-${clampedPage * 100}% - ${clampedPage * 14 * VISIBLE / VISIBLE}px))`,
-              transition: 'transform 0.55s cubic-bezier(0.4,0,0.2,1)',
-              willChange: 'transform',
+              transition: 'transform 0.55s cubic-bezier(0.4,0,0.2,1)', willChange: 'transform',
             }}>
               {GUEST_REVIEWS.map((t, i) => (
-                <div key={i} className="review-card"
-                  onClick={() => setActiveReview(t)}
-                  style={{
-                    flexShrink: 0,
-                    width: `calc((100% - ${14 * (VISIBLE - 1)}px) / ${VISIBLE})`,
-                    background: 'white', 
-                    padding: 'clamp(16px,2vw,22px)',
-                    boxShadow: '0 3px 18px rgba(0,0,0,.07)',
-                    border: '1px solid rgba(0,0,0,.05)',
-                    display: 'flex', flexDirection: 'column', gap: 11, cursor: 'pointer',
-                  }}
-                >
+                <div key={i} className="review-card" onClick={() => setActiveReview(t)} style={{
+                  flexShrink: 0,
+                  width: `calc((100% - ${14 * (VISIBLE - 1)}px) / ${VISIBLE})`,
+                  background: 'white', padding: 'clamp(16px,2vw,22px)',
+                  boxShadow: '0 3px 18px rgba(0,0,0,.07)', border: '1px solid rgba(0,0,0,.05)',
+                  display: 'flex', flexDirection: 'column', gap: 11, cursor: 'pointer',
+                }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <div style={{
                       width: 38, height: 38, flexShrink: 0,
@@ -837,8 +663,8 @@ function GuestStoriesSection() {
           </div>
         </div>
 
-        {/* Dots + Book Now */}
-        <div style={{ marginTop: 28, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, padding: '0 clamp(48px,5vw,68px)' }}>
+        {/* Dots only — Book Now button removed */}
+        <div style={{ marginTop: 28, padding: '0 clamp(48px,5vw,68px)' }}>
           <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
             {Array(TOTAL_PAGES).fill(0).map((_, i) => (
               <button key={i} onClick={() => setPage(i)} style={{
@@ -850,16 +676,6 @@ function GuestStoriesSection() {
               }} />
             ))}
           </div>
-          <Link to="/booking" style={{
-            display: 'inline-flex', alignItems: 'center',
-            background: '#1a1a1a', color: 'white', textDecoration: 'none',
-            fontSize: 10, fontWeight: 800, letterSpacing: '.18em', textTransform: 'uppercase',
-            padding: '12px 28px', transition: 'all .2s ease',
-          }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = '#333'}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = '#1a1a1a'}>
-            Book Now
-          </Link>
         </div>
       </div>
 
@@ -872,16 +688,13 @@ function GuestStoriesSection() {
           padding: '16px', animation: 'fadeIn .2s ease',
         }}>
           <div onClick={e => e.stopPropagation()} style={{
-            background: 'white',
-            padding: 'clamp(24px,4vw,36px)',
+            background: 'white', padding: 'clamp(24px,4vw,36px)',
             maxWidth: 480, width: '100%', maxHeight: '90vh', overflowY: 'auto',
             boxShadow: '0 24px 64px rgba(0,0,0,.22)',
-            animation: 'modalPop .3s cubic-bezier(.16,1,.3,1) both',
-            position: 'relative',
+            animation: 'modalPop .3s cubic-bezier(.16,1,.3,1) both', position: 'relative',
           }}>
             <button onClick={() => setActiveReview(null)} style={{
-              position: 'absolute', top: 14, right: 14,
-              width: 30, height: 30,
+              position: 'absolute', top: 14, right: 14, width: 30, height: 30,
               background: '#f5f3ee', border: 'none', cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: '#555',
             }}>×</button>
@@ -920,8 +733,7 @@ function GuestStoriesSection() {
 function ScrollToTop({ scrollY, modalOpen }: { scrollY: number; modalOpen: boolean }) {
   const visible = scrollY > 300 && !modalOpen;
   return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className="scroll-top-btn"
       style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? 'auto' : 'none', transform: visible ? 'none' : 'translateY(12px)' }}
       aria-label="Scroll to top">
@@ -938,6 +750,156 @@ function ScrollToTop({ scrollY, modalOpen }: { scrollY: number; modalOpen: boole
   );
 }
 
+// ─── OFFER MODAL ─────────────────────────────────────────────────────────────
+function OfferModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, onClose]);
+
+  if (!open) return null;
+  return (
+    <div onClick={onClose} style={{
+      position: 'fixed', inset: 0, zIndex: 99999,
+      background: 'rgba(0,0,0,0.52)', backdropFilter: 'blur(7px)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      padding: 'clamp(12px,3vw,24px)', animation: 'fadeIn .3s ease',
+    }}>
+      <style>{`
+        @media (max-width: 600px) {
+          .offer-grid { grid-template-columns: 1fr !important; }
+          .offer-img-panel { min-height: 180px !important; max-height: 220px !important; }
+        }
+      `}</style>
+      <div onClick={e => e.stopPropagation()} className="offer-grid" style={{
+        background: '#f5f3ee', maxWidth: 620, width: '100%',
+        maxHeight: '92vh', overflowY: 'auto',
+        boxShadow: '0 32px 80px rgba(0,0,0,.28)',
+        animation: 'modalPop .4s cubic-bezier(.16,1,.3,1) both',
+        display: 'grid', gridTemplateColumns: '1fr 1fr',
+      }}>
+        <div className="offer-img-panel" style={{ position: 'relative', minHeight: 340 }}>
+          <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=85" alt="Off Season Offer"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 'inherit' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 60%)' }} />
+          <div style={{ position: 'absolute', top: 16, left: 16, background: BRAND.primary, color: 'white', fontSize: 8, fontWeight: 900, letterSpacing: '.18em', textTransform: 'uppercase', padding: '5px 12px' }}>Limited Offer</div>
+          <div style={{ position: 'absolute', bottom: 18, left: 18 }}>
+            <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,.55)', marginBottom: 4 }}>Off-Peak Special</div>
+            <div style={{ fontSize: 'clamp(18px,3vw,22px)', fontWeight: 800, color: '#fff', lineHeight: 1.1 }}>Save Up to<br /><span style={{ color: '#fcd34d' }}>10% Off</span></div>
+          </div>
+        </div>
+        <div style={{ padding: 'clamp(20px,3vw,32px)', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
+            <button onClick={onClose} style={{ width: 28, height: 28, background: 'rgba(0,0,0,.08)', border: 'none', cursor: 'pointer', fontSize: 15, color: '#555', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
+          </div>
+          <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase', color: BRAND.primary, marginBottom: 10 }}>Exclusive Deal</div>
+          <h2 style={{ fontFamily: "'Dancing Script', 'Brush Script MT', cursive", fontSize: 'clamp(22px,4vw,34px)', fontWeight: 700, color: '#1a1a1a', margin: '0 0 14px', lineHeight: 1.1 }}>Explore the<br />Off Season</h2>
+          <div style={{ width: 36, height: 2, background: BRAND.primary, marginBottom: 14 }} />
+          <p style={{ fontSize: 12, color: 'rgba(0,0,0,.5)', lineHeight: 1.8, fontWeight: 300, margin: '0 0 8px' }}>
+            Book off-peak dates and enjoy <strong style={{ color: '#1a1a1a', fontWeight: 600 }}>10% off your entire stay</strong> — serene, uncrowded, and just as beautiful.
+          </p>
+          <p style={{ fontSize: 11, color: 'rgba(0,0,0,.35)', lineHeight: 1.7, fontWeight: 300, margin: '0 0 24px', flexGrow: 1 }}>Valid Jan–Mar and select weekdays. Discount applied at checkout.</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <Link to="/booking" onClick={onClose} className="btn-primary" style={{ justifyContent: 'center' }}>Book Now & Save →</Link>
+            <button onClick={onClose} style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: 10, color: 'rgba(0,0,0,.3)', fontWeight: 600, padding: '4px 0', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+              No thanks, I'll pay full price
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── CTA SECTION ─────────────────────────────────────────────────────────────
+const CTA_ITEMS = [
+  { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80', heading: 'Reserve Now', sub: 'Book directly and get our best available rates — no hidden fees, instant confirmation.', href: '/booking', isExternal: false },
+  { img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=900&q=80', heading: 'Message on Facebook', sub: 'Have questions? Chat with us directly — we usually reply within the hour.', href: 'https://www.facebook.com/villadelpradoresort', isExternal: true },
+  { img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=900&q=80', heading: 'Explore the Off Season', sub: 'Enjoy discounted rates on off-peak dates — peaceful, uncrowded, and just as beautiful.', href: '/booking', isExternal: false },
+];
+
+function CtaSection({ onOpenOffer }: { onOpenOffer: () => void }) {
+  const [hovered, setHovered] = useState(0);
+  const handleClick = (i: number, item: typeof CTA_ITEMS[0]) => {
+    if (i === 2) { onOpenOffer(); return; }
+    if (item.isExternal) window.open(item.href, '_blank');
+  };
+
+  return (
+    <section style={{ background: '#f5f3ee' }}>
+      <style>{`
+        @media (max-width: 767px) {
+          .cta-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+          .cta-img-col { display: none !important; }
+          .cta-item-row { padding: 20px 0 !important; }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .cta-grid { gap: 36px !important; }
+          .cta-img-col img { height: clamp(300px,45vw,440px) !important; }
+        }
+      `}</style>
+
+      <div style={{ textAlign: 'center', paddingTop: 'clamp(48px,7vw,72px)', paddingBottom: 'clamp(24px,3vw,32px)' }}>
+        <h2 style={{ fontFamily: "'Dancing Script', 'Brush Script MT', cursive", fontSize: 'clamp(32px, 5.5vw, 68px)', fontWeight: 700, color: '#1a1a1a', margin: '0 0 10px', lineHeight: 1.05 }}>Ready to Escape?</h2>
+        <div style={{ width: 1, height: 32, background: 'rgba(0,0,0,.18)', margin: '0 auto' }} />
+      </div>
+
+      <div className="cta-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', maxWidth: 1280, margin: '0 auto', padding: '0 5% clamp(48px,7vw,80px)', gap: 'clamp(32px,5vw,64px)', alignItems: 'start' }}>
+        <div className="cta-img-col" style={{ position: 'relative', overflow: 'hidden' }}>
+          {CTA_ITEMS.map((item, i) => (
+            <img key={i} src={item.img} alt={item.heading} style={{
+              width: '100%', height: 'clamp(280px,40vw,560px)', objectFit: 'cover', display: 'block',
+              position: i === 0 ? 'relative' : 'absolute', top: 0, left: 0,
+              opacity: hovered === i ? 1 : 0,
+              transition: 'opacity 0.55s cubic-bezier(0.4,0,0.2,1)',
+            }} />
+          ))}
+          <div style={{ position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%) rotate(-90deg)', transformOrigin: 'center center', fontSize: 8, fontWeight: 700, letterSpacing: '.22em', textTransform: 'uppercase', color: 'rgba(0,0,0,.3)', whiteSpace: 'nowrap' }}>Villa Del Prado · Sariaya</div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {CTA_ITEMS.map((item, i) => (
+            <div key={i}>
+              <div style={{ height: 1, background: 'rgba(0,0,0,.12)', marginBottom: 'clamp(18px,2.5vw,28px)' }} />
+              <div className="cta-item-row"
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(0)}
+                style={{ marginBottom: 'clamp(18px,2.5vw,28px)', cursor: 'pointer', padding: '4px 0' }}
+                onClick={() => handleClick(i, item)}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                  {i === 0 ? (
+                    <Link to="/booking" style={{ textDecoration: 'none' }}>
+                      <h3 style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: 'clamp(18px, 2.2vw, 28px)', fontWeight: 400, margin: 0, letterSpacing: '-.2px', transition: 'color .2s ease', color: hovered === i ? BRAND.primary : '#1a1a1a' }}>{item.heading}</h3>
+                    </Link>
+                  ) : (
+                    <h3 style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: 'clamp(18px, 2.2vw, 28px)', fontWeight: 400, color: hovered === i ? BRAND.primary : '#1a1a1a', margin: 0, letterSpacing: '-.2px', transition: 'color .2s ease' }}>{item.heading}</h3>
+                  )}
+                  <span style={{ fontSize: 16, color: hovered === i ? BRAND.primary : 'rgba(0,0,0,.25)', transition: 'all .25s ease', transform: hovered === i ? 'translateX(4px)' : 'none', display: 'inline-block', flexShrink: 0, marginLeft: 12 }}>→</span>
+                </div>
+                <p style={{ fontSize: 'clamp(11px,1.1vw,12px)', color: 'rgba(0,0,0,.45)', lineHeight: 1.75, fontWeight: 300, margin: 0, maxWidth: 420 }}>{item.sub}</p>
+              </div>
+            </div>
+          ))}
+          <div style={{ height: 1, background: 'rgba(0,0,0,.12)' }} />
+          <div style={{ marginTop: 'clamp(24px,3vw,36px)', display: 'flex', flexDirection: 'column', gap: 7 }}>
+            {[['📍', 'Sariaya, Quezon Province'], ['📞', '+63 XXX XXX XXXX'], ['✉️', 'info@villadelprado.ph']].map(([icon, text]) => (
+              <div key={text as string} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 11, color: 'rgba(0,0,0,.38)', fontWeight: 500 }}>
+                <span>{icon}</span><span>{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── MAIN ─────────────────────────────────────────────────────────────────────
 export default function Home() {
   const [active, setActive] = useState(0);
@@ -949,13 +911,9 @@ export default function Home() {
   const [heroTextReady, setHeroTextReady] = useState(false);
   useScrollReveal();
 
-  // Show offer modal only once per browser session
   useEffect(() => {
     if (sessionStorage.getItem('offerSeen')) return;
-    const t = setTimeout(() => {
-      setOfferOpen(true);
-      sessionStorage.setItem('offerSeen', '1');
-    }, 1800);
+    const t = setTimeout(() => { setOfferOpen(true); sessionStorage.setItem('offerSeen', '1'); }, 1800);
     return () => clearTimeout(t);
   }, []);
 
@@ -996,75 +954,15 @@ export default function Home() {
   const slide = SLIDES[active];
 
   return (
-    <div className="w-full overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif", background: '#f5f3ee' }}>
+    <div className="w-full overflow-x-hidden" style={{ background: '#f5f3ee' }}>
       <ScrollToTop scrollY={scrollY} modalOpen={offerOpen || !!selectedRoom} />
       <OfferModal open={offerOpen} onClose={() => setOfferOpen(false)} />
-
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
-        *, *::before, *::after { font-family: 'Montserrat', sans-serif !important; box-sizing: border-box; }
-        html, body { overflow-x: hidden; width: 100%; background: #f5f3ee; }
-
-        .bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; transition: opacity 1.6s cubic-bezier(.4,0,.2,1); will-change: transform, opacity; }
-        .bg-layer.entering { opacity: 1; animation: kenBurns 10s ease-out forwards; }
-        .bg-layer.exiting  { opacity: 0; }
-        .bg-layer.dormant  { opacity: 0; }
-
-        @keyframes kenBurns { 0% { transform: scale(1.05) translateX(2px); } 100% { transform: scale(1.0) translateX(-10px); } }
-        @keyframes fadeUp  { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
-        @keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
-
-        .h-once-eyebrow { animation: fadeUp  .65s cubic-bezier(.16,1,.3,1) .1s  both; }
-        .h-once-line1   { animation: fadeUp  .85s cubic-bezier(.16,1,.3,1) .28s both; }
-        .h-once-line2   { animation: fadeUp  .85s cubic-bezier(.16,1,.3,1) .42s both; }
-        .h-once-rule    { animation: fadeIn  .6s  ease                     .56s both; }
-        .h-once-body    { animation: fadeUp  .7s  cubic-bezier(.16,1,.3,1) .68s both; }
-        .h-once-cta     { animation: fadeUp  .7s  cubic-bezier(.16,1,.3,1) .82s both; }
-
-        @keyframes activeReveal  { from { opacity:0; transform:scale(1.08); } to { opacity:1; transform:none; } }
-        @keyframes thumbSlideIn  { from { opacity:0; transform:translateX(14px) scale(.94); } to { opacity:1; transform:none; } }
-        @keyframes labelFadeUp   { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
-        @keyframes fillBar       { from { width:0%; } to { width:100%; } }
-        @keyframes galLabelUp    { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
-
-        @keyframes swimFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
-        .scroll-top-btn { position:fixed; bottom:28px; right:24px; z-index:999; width:56px; height:56px; border-radius:50%; background:transparent; border:none; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; box-shadow:none; transition:opacity .35s ease, transform .35s cubic-bezier(.16,1,.3,1); }
-        .scroll-top-btn:hover { transform:scale(1.12) !important; }
-
-        @keyframes modalPop    { from { opacity:0; transform:scale(.93) translateY(18px); } to { opacity:1; transform:none; } }
-        @keyframes fadeIn      { from { opacity:0; } to { opacity:1; } }
-        @keyframes marquee     { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-        @keyframes pulseDot    { 0%,100%{opacity:.4;transform:scale(1);} 50%{opacity:1;transform:scale(1.3);} }
-        @keyframes scrollFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
-        @keyframes ringPulse   { 0%,100%{box-shadow:0 0 0 0 rgba(0,119,168,.3);} 50%{box-shadow:0 0 0 10px rgba(0,119,168,0);} }
-
-        .sr { opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; }
-        .sr.in-view { opacity:1; transform:none; }
-        .sr-d1{transition-delay:.08s;} .sr-d2{transition-delay:.18s;}
-        .sr-d3{transition-delay:.28s;} .sr-d4{transition-delay:.38s;}
-
-        .room-card { transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease; }
-        .room-card:hover { transform:translateY(-6px); box-shadow:0 24px 56px rgba(0,0,0,.13) !important; }
-        .room-card:hover .room-img { transform:scale(1.07); }
-        .room-img { transition:transform .6s ease; }
-        .test-card:hover { transform:translateY(-4px); box-shadow:0 20px 48px rgba(0,0,0,.1) !important; }
-        .test-card { transition: transform .35s ease, box-shadow .35s ease; }
-
-        .mq-track { display:inline-flex; align-items:center; animation:marquee 220s linear infinite; white-space:nowrap; }
-        .cta-primary { animation:ringPulse 3s ease-in-out infinite; }
-        .scroll-line { width:1px; height:44px; background:linear-gradient(to bottom, rgba(255,255,255,.65), transparent); animation:scrollFloat 2.2s ease-in-out infinite; }
-
-        .grain-overlay::after {
-          content:''; position:absolute; inset:0; pointer-events:none; z-index:4; opacity:.04;
-          background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-          background-size:200px;
-        }
-      `}</style>
 
       {/* ═══ HERO ═══ */}
       <section className="relative overflow-hidden grain-overlay w-full" style={{ height: '100vh', minHeight: 560 }}>
         {SLIDES.map((s, i) => (
-          <div key={i} className={`bg-layer ${i === active ? 'entering' : i === prevBg ? 'exiting' : 'dormant'}`} style={{ backgroundImage: `url(${s.img})` }} />
+          <div key={i} className={`bg-layer ${i === active ? 'entering' : i === prevBg ? 'exiting' : 'dormant'}`}
+            style={{ backgroundImage: `url(${s.img})` }} />
         ))}
         <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/65 via-black/25 to-black/80" />
         <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black/50 via-transparent to-transparent" />
@@ -1090,9 +988,8 @@ export default function Home() {
                 500m of private white sand beach, crystal-clear waters, just hours from Manila.
               </p>
               <div className="h-once-cta flex gap-3 mb-auto">
-                <Link to="/booking" className="cta-primary inline-flex items-center font-extrabold text-[10px] tracking-[.15em] uppercase transition-all hover:shadow-xl text-white"
-                  style={{ background: `linear-gradient(to bottom right, ${BRAND.primary}, ${BRAND.primaryDark})`, padding: '12px 24px', boxShadow: `0 2px 16px ${BRAND.primaryGlow}` }}>Reserve Now</Link>
-                <Link to="/gallery" className="inline-flex items-center font-bold text-[10px] tracking-[.12em] uppercase border border-white/30 text-white/70 hover:bg-white/10 transition-all" style={{ padding: '11px 20px' }}>Explore ↗</Link>
+                <Link to="/booking" className="btn-primary cta-primary">Reserve Now</Link>
+                <Link to="/gallery" className="btn-ghost">Explore →</Link>
               </div>
             </>
           )}
@@ -1122,9 +1019,8 @@ export default function Home() {
                   500m of private white sand beach, crystal-clear waters, and resort amenities — just hours from Manila.
                 </p>
                 <div className="h-once-cta flex flex-wrap gap-3 items-center">
-                  <Link to="/booking" className="cta-primary inline-flex items-center gap-2 font-extrabold text-[11px] tracking-[.15em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl text-white"
-                    style={{ background: `linear-gradient(to bottom right, ${BRAND.primary}, ${BRAND.primaryDark})`, padding: '14px 36px', boxShadow: `0 2px 16px ${BRAND.primaryGlow}` }}>Reserve Now</Link>
-                  <Link to="/gallery" className="inline-flex items-center gap-2 font-bold text-[11px] tracking-[.12em] uppercase border border-white/30 text-white/70 hover:bg-white/10 transition-all" style={{ padding: '13px 26px' }}>Explore ↗</Link>
+                  <Link to="/booking" className="btn-primary cta-primary">Reserve Now</Link>
+                  <Link to="/gallery" className="btn-ghost">Gallery →</Link>
                 </div>
               </>
             )}
@@ -1139,7 +1035,6 @@ export default function Home() {
           <div className="scroll-line" />
           <span className="text-white/25 text-[7px] font-bold tracking-[.3em] uppercase">Scroll</span>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 z-[7] pointer-events-none" />
       </section>
 
       {/* ═══ MARQUEE ═══ */}
@@ -1156,7 +1051,7 @@ export default function Home() {
             <span key={i} className="inline-flex items-center gap-2 mr-8 font-semibold text-[10px] tracking-[.18em] uppercase flex-shrink-0" style={{ color: '#111' }}>
               <span className="flex-shrink-0">{item.icon}</span>
               {item.label}
-              <span className="w-1 h-1   ml-1 flex-shrink-0" style={{ background: '#ccc' }} />
+              <span className="w-1 h-1 ml-1 flex-shrink-0" style={{ background: '#ccc' }} />
             </span>
           ))}
         </div>
@@ -1171,7 +1066,7 @@ export default function Home() {
                 <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=700&q=80" alt="Nipa Hut Villa Del Prado Sariaya Quezon" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
-            <div className="absolute bottom-0 right-0  overflow-hidden shadow-lg sm:shadow-xl" style={{ width: '42%', height: '42%', border: '3px solid #f5f3ee' }}>
+            <div className="absolute bottom-0 right-0 overflow-hidden shadow-lg sm:shadow-xl" style={{ width: '42%', height: '42%', border: '3px solid #f5f3ee' }}>
               <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&q=80" alt="Swimming pool Villa Del Prado" className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="absolute z-10 text-white px-3 py-2 shadow-lg" style={{ bottom: '41%', left: 6, background: `linear-gradient(to bottom right, ${BRAND.primary}, ${BRAND.primaryDark})` }}>
@@ -1180,7 +1075,7 @@ export default function Home() {
             </div>
           </div>
           <div className="sr sr-d2">
-            <span className="inline-block text-[9px] font-extrabold tracking-[.2em] uppercase px-4 py-1.5 mb-4" style={{ background: BRAND.primaryLight, color: BRAND.primary }}>About the Resort</span>
+            <span className="section-tag mb-4">About the Resort</span>
             <h2 className="text-neutral-900 font-black tracking-tight leading-tight mb-4" style={{ fontSize: 'clamp(26px, 4vw, 52px)' }}>
               Quezon's Most<br /><span style={{ color: BRAND.primary }}>Beloved Escape.</span>
             </h2>
@@ -1191,10 +1086,8 @@ export default function Home() {
               From <strong className="text-neutral-700 font-semibold">nipa hut cabanas</strong> on the water's edge to air-conditioned deluxe rooms with sea views — every corner is crafted for comfort.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/accommodations" className="text-white text-[10px] font-extrabold px-6 py-3 sm:px-7 sm:py-3.5 tracking-[.15em] uppercase transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                style={{ background: `linear-gradient(to bottom right, ${BRAND.primary}, ${BRAND.primaryDark})`, boxShadow: `0 2px 16px ${BRAND.primaryGlow}` }}>See Rooms & Rates</Link>
-              <Link to="/gallery" className="border text-[10px] font-extrabold px-5 py-3 sm:px-6 sm:py-3.5 tracking-[.15em] uppercase transition-all hover:opacity-80"
-                style={{ borderColor: `${BRAND.primary}40`, color: BRAND.primary }}>View Gallery →</Link>
+              <Link to="/accommodations" className="btn-primary">See Rooms & Rates</Link>
+              <Link to="/gallery" className="btn-outline">View Gallery →</Link>
             </div>
           </div>
         </div>
@@ -1205,15 +1098,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="sr flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-14">
             <div>
-              <span className="inline-block text-[9px] font-extrabold tracking-[.2em] uppercase px-4 py-1.5 mb-3" style={{ background: BRAND.primaryLight, color: BRAND.primary }}>Where You'll Stay</span>
+              <span className="section-tag mb-3">Where You'll Stay</span>
               <h2 className="text-neutral-900 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(26px, 5vw, 54px)' }}>
                 Our <span style={{ color: BRAND.primary }}>Accommodations.</span>
               </h2>
               <p className="text-neutral-400 mt-2 text-xs font-light">Tap any room to explore details and pricing.</p>
             </div>
-            <Link to="/accommodations" className="text-[10px] font-extrabold tracking-[.15em] uppercase flex items-center gap-2 group transition-colors flex-shrink-0"
-              style={{ color: BRAND.primary }}>
-              View All <span className="group-hover:translate-x-1 transition-transform">→</span>
+            {/* View All — bordered button matching reference */}
+            <Link to="/accommodations" className="btn-outline" style={{ fontSize: 10 }}>
+              View All →
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
@@ -1235,7 +1128,8 @@ export default function Home() {
                       <span className="font-black text-xl" style={{ color: BRAND.primary }}>{room.price}</span>
                       <span className="text-neutral-300 text-[10px] ml-1">/ night</span>
                     </div>
-                    <span className="text-[8px] font-extrabold px-2.5 py-1.5 tracking-widest uppercase" style={{ color: BRAND.primary, background: BRAND.primaryLight }}>Details →</span>
+                    {/* Details — + icon as requested */}
+                    <span className="section-tag">Details</span>
                   </div>
                 </div>
               </div>
@@ -1250,14 +1144,14 @@ export default function Home() {
 
       {/* ═══ GALLERY ═══ */}
       <section className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-[10%]" style={{ background: '#f5f3ee' }}>
-        <div className="max-w-7xl mx-auto" >
+        <div className="max-w-7xl mx-auto">
           <div className="sr text-center mb-10 sm:mb-12">
-            <span className="inline-block text-[9px] font-extrabold tracking-[.2em] uppercase px-4 py-1.5 mb-3" style={{ background: BRAND.primaryLight, color: BRAND.primary }}>Photo Gallery</span>
+            <span className="section-tag mb-3">Photo Gallery</span>
             <h2 className="text-neutral-900 font-black tracking-tight leading-tight" style={{ fontSize: 'clamp(26px, 5vw, 54px)' }}>
               A Glimpse of <span style={{ color: BRAND.primary }}>Paradise.</span>
             </h2>
           </div>
-          <div className="sr" >
+          <div className="sr">
             <GalleryCarousel />
           </div>
         </div>
@@ -1268,197 +1162,6 @@ export default function Home() {
 
       {/* ═══ CTA ═══ */}
       <CtaSection onOpenOffer={() => setOfferOpen(true)} />
-
     </div>
-  );
-}
-
-// ─── OFFER MODAL ─────────────────────────────────────────────────────────────
-function OfferModal({ open, onClose }: { open: boolean; onClose: () => void }) {
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [open]);
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open, onClose]);
-
-  if (!open) return null;
-  return (
-    <div onClick={onClose} style={{
-      position: 'fixed', inset: 0, zIndex: 99999,
-      background: 'rgba(0,0,0,0.52)', backdropFilter: 'blur(7px)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: 'clamp(12px,3vw,24px)',
-      animation: 'fadeIn .3s ease',
-    }}>
-      <style>{`
-        @media (max-width: 600px) {
-          .offer-grid { grid-template-columns: 1fr !important; }
-          .offer-img-panel { min-height: 180px !important; max-height: 220px !important; }
-        }
-      `}</style>
-      <div onClick={e => e.stopPropagation()} className="offer-grid" style={{
-        background: '#f5f3ee',
-        maxWidth: 620, width: '100%',
-        maxHeight: '92vh', overflowY: 'auto',
-        boxShadow: '0 32px 80px rgba(0,0,0,.28)',
-        animation: 'modalPop .4s cubic-bezier(.16,1,.3,1) both',
-        display: 'grid', gridTemplateColumns: '1fr 1fr',
-      }}>
-        {/* Left: image */}
-        <div className="offer-img-panel" style={{ position: 'relative', minHeight: 340 }}>
-          <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&q=85"
-            alt="Off Season Offer"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 'inherit' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 60%)' }} />
-          <div style={{ position: 'absolute', top: 16, left: 16, background: BRAND.primary, color: 'white', fontSize: 8, fontWeight: 900, letterSpacing: '.18em', textTransform: 'uppercase', padding: '5px 12px'}}>Limited Offer</div>
-          <div style={{ position: 'absolute', bottom: 18, left: 18 }}>
-            <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,.55)', marginBottom: 4 }}>Off-Peak Special</div>
-            <div style={{ fontSize: 'clamp(18px,3vw,22px)', fontWeight: 800, color: '#fff', lineHeight: 1.1 }}>Save Up to<br /><span style={{ color: '#fcd34d' }}>10% Off</span></div>
-          </div>
-        </div>
-
-        {/* Right: content */}
-        <div style={{ padding: 'clamp(20px,3vw,32px)', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
-            <button onClick={onClose} style={{ width: 28, height: 28, background: 'rgba(0,0,0,.08)', border: 'none', cursor: 'pointer', fontSize: 15, color: '#555', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
-          </div>
-          <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase', color: BRAND.primary, marginBottom: 10 }}>Exclusive Deal</div>
-          <h2 style={{ fontFamily: "'Dancing Script', 'Brush Script MT', cursive", fontSize: 'clamp(22px,4vw,34px)', fontWeight: 700, color: '#1a1a1a', margin: '0 0 14px', lineHeight: 1.1 }}>Explore the<br />Off Season</h2>
-          <div style={{ width: 36, height: 2, background: BRAND.primary, marginBottom: 14 }} />
-          <p style={{ fontSize: 12, color: 'rgba(0,0,0,.5)', lineHeight: 1.8, fontWeight: 300, margin: '0 0 8px' }}>
-            Book off-peak dates and enjoy <strong style={{ color: '#1a1a1a', fontWeight: 600 }}>10% off your entire stay</strong> — serene, uncrowded, and just as beautiful.
-          </p>
-          <p style={{ fontSize: 11, color: 'rgba(0,0,0,.35)', lineHeight: 1.7, fontWeight: 300, margin: '0 0 24px', flexGrow: 1 }}>Valid Jan–Mar and select weekdays. Discount applied at checkout.</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <Link to="/booking" onClick={onClose} style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: `linear-gradient(to right, ${BRAND.primary}, ${BRAND.primaryDark})`,
-              color: 'white', textDecoration: 'none',
-              fontSize: 10, fontWeight: 800, letterSpacing: '.16em', textTransform: 'uppercase',
-              padding: '12px 20px',
-              boxShadow: `0 4px 18px ${BRAND.primaryGlow}`,
-            }}>Book Now & Save →</Link>
-            <button onClick={onClose} style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: 10, color: 'rgba(0,0,0,.3)', fontWeight: 600, padding: '4px 0', textDecoration: 'underline', textUnderlineOffset: 3 }}>
-              No thanks, I'll pay full price
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── CTA SECTION ─────────────────────────────────────────────────────────────
-const CTA_ITEMS = [
-  {
-    img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80',
-    heading: 'Reserve Now',
-    sub: 'Book directly and get our best available rates — no hidden fees, instant confirmation.',
-    href: '/booking',
-    isExternal: false,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=900&q=80',
-    heading: 'Message on Facebook',
-    sub: 'Have questions? Chat with us directly — we usually reply within the hour.',
-    href: 'https://www.facebook.com/villadelpradoresort',
-    isExternal: true,
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=900&q=80',
-    heading: 'Explore the Off Season',
-    sub: 'Enjoy discounted rates on off-peak dates — peaceful, uncrowded, and just as beautiful.',
-    href: '/booking',
-    isExternal: false,
-  },
-];
-
-function CtaSection({ onOpenOffer }: { onOpenOffer: () => void }) {
-  const [hovered, setHovered] = useState(0);
-
-  const handleClick = (i: number, item: typeof CTA_ITEMS[0]) => {
-    if (i === 2) { onOpenOffer(); return; }
-    if (item.isExternal) window.open(item.href, '_blank');
-  };
-
-  return (
-    <section style={{ background: '#f5f3ee' }}>
-      <style>{`
-        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        @media (max-width: 767px) {
-          .cta-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
-          .cta-img-col { display: none !important; }
-          .cta-item-row { padding: 20px 0 !important; }
-        }
-        @media (min-width: 768px) and (max-width: 1023px) {
-          .cta-grid { gap: 36px !important; }
-          .cta-img-col img { height: clamp(300px,45vw,440px) !important; }
-        }
-      `}</style>
-
-      {/* Script heading */}
-      <div style={{ textAlign: 'center', paddingTop: 'clamp(48px,7vw,72px)', paddingBottom: 'clamp(24px,3vw,32px)' }}>
-        <h2 style={{ fontFamily: "'Dancing Script', 'Brush Script MT', cursive", fontSize: 'clamp(32px, 5.5vw, 68px)', fontWeight: 700, color: '#1a1a1a', margin: '0 0 10px', lineHeight: 1.05 }}>Ready to Escape?</h2>
-        <div style={{ width: 1, height: 32, background: 'rgba(0,0,0,.18)', margin: '0 auto' }} />
-      </div>
-
-      {/* Two-column grid */}
-      <div className="cta-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', maxWidth: 1280, margin: '0 auto', padding: '0 5% clamp(48px,7vw,80px)', gap: 'clamp(32px,5vw,64px)', alignItems: 'start' }}>
-
-        {/* Image column */}
-        <div className="cta-img-col" style={{ position: 'relative', overflow: 'hidden'}}>
-          {CTA_ITEMS.map((item, i) => (
-            <img key={i} src={item.img} alt={item.heading} style={{
-              width: '100%', height: 'clamp(280px,40vw,560px)', objectFit: 'cover', display: 'block',
-              position: i === 0 ? 'relative' : 'absolute', top: 0, left: 0,
-              opacity: hovered === i ? 1 : 0,
-              transition: 'opacity 0.55s cubic-bezier(0.4,0,0.2,1)',
-            }} />
-          ))}
-          <div style={{ position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%) rotate(-90deg)', transformOrigin: 'center center', fontSize: 8, fontWeight: 700, letterSpacing: '.22em', textTransform: 'uppercase', color: 'rgba(0,0,0,.3)', whiteSpace: 'nowrap' }}>Villa Del Prado · Sariaya</div>
-        </div>
-
-        {/* Items column */}
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {CTA_ITEMS.map((item, i) => (
-            <div key={i}>
-              <div style={{ height: 1, background: 'rgba(0,0,0,.12)', marginBottom: 'clamp(18px,2.5vw,28px)' }} />
-              <div className="cta-item-row"
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(0)}
-                style={{ marginBottom: 'clamp(18px,2.5vw,28px)', cursor: 'pointer', padding: '4px 0' }}
-                onClick={() => handleClick(i, item)}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-                  {i === 0 ? (
-                    <Link to="/booking" style={{ textDecoration: 'none' }}>
-                      <h3 style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: 'clamp(18px, 2.2vw, 28px)', fontWeight: 400, margin: 0, letterSpacing: '-.2px', transition: 'color .2s ease', color: hovered === i ? BRAND.primary : '#1a1a1a' }}>{item.heading}</h3>
-                    </Link>
-                  ) : (
-                    <h3 style={{ fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontSize: 'clamp(18px, 2.2vw, 28px)', fontWeight: 400, color: hovered === i ? BRAND.primary : '#1a1a1a', margin: 0, letterSpacing: '-.2px', transition: 'color .2s ease' }}>{item.heading}</h3>
-                  )}
-                  <span style={{ fontSize: 16, color: hovered === i ? BRAND.primary : 'rgba(0,0,0,.25)', transition: 'all .25s ease', transform: hovered === i ? 'translateX(4px)' : 'none', display: 'inline-block', flexShrink: 0, marginLeft: 12 }}>→</span>
-                </div>
-                <p style={{ fontSize: 'clamp(11px,1.1vw,12px)', color: 'rgba(0,0,0,.45)', lineHeight: 1.75, fontWeight: 300, margin: 0, maxWidth: 420 }}>{item.sub}</p>
-              </div>
-            </div>
-          ))}
-          <div style={{ height: 1, background: 'rgba(0,0,0,.12)' }} />
-
-          <div style={{ marginTop: 'clamp(24px,3vw,36px)', display: 'flex', flexDirection: 'column', gap: 7 }}>
-            {[['📍', 'Sariaya, Quezon Province'], ['📞', '+63 XXX XXX XXXX'], ['✉️', 'info@villadelprado.ph']].map(([icon, text]) => (
-              <div key={text as string} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 11, color: 'rgba(0,0,0,.38)', fontWeight: 500 }}>
-                <span>{icon}</span><span>{text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
