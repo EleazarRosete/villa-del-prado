@@ -84,7 +84,7 @@ export default function Footer() {
               },
               {
                 label: 'Instagram',
-                href: '#',
+                href: 'https://www.instagram.com/villadel_prado',
                 icon: (
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>

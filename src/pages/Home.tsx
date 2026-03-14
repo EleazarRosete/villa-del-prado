@@ -308,7 +308,7 @@ function GalleryCarousel() {
         <div style={{ position: 'absolute', inset: '6% 4%', zIndex: 5 }}>
           {/* PREV */}
           <div onClick={() => navigate('prev')} style={{
-            position: 'absolute', width: '30%', height: '82%', top: '9%', left: '0%',
+            position: 'absolute', width: '30%', height: '80%', top: '9%', left: '-20%',
             overflow: 'hidden', cursor: 'pointer',
             transform: animating && direction === 'next' ? 'translateX(-30%) rotateY(-42deg) scale(0.78)' : 'translateX(0%) rotateY(-22deg) scale(0.9)',
             opacity: animating && direction === 'next' ? 0 : 0.6,
@@ -322,7 +322,7 @@ function GalleryCarousel() {
 
           {/* NEXT */}
           <div onClick={() => navigate('next')} style={{
-            position: 'absolute', width: '30%', height: '82%', top: '9%', right: '0%', left: 'auto',
+            position: 'absolute', width: '30%', height: '80%', top: '9%', right: '-20%', left: 'auto',
             overflow: 'hidden', cursor: 'pointer',
             transform: animating && direction === 'prev' ? 'translateX(30%) rotateY(42deg) scale(0.78)' : 'translateX(0%) rotateY(22deg) scale(0.9)',
             opacity: animating && direction === 'prev' ? 0 : 0.6,
@@ -336,7 +336,7 @@ function GalleryCarousel() {
 
           {/* CENTER */}
           <div style={{
-            position: 'absolute', width: '50%', height: '100%', top: 0, left: '50%',
+            position: 'absolute', width: '80%', height: '100%', top: 0, left: '50%',
             transform: animating
               ? direction === 'next' ? 'translateX(-50%) rotateY(-8deg) scale(0.95)' : 'translateX(-50%) rotateY(8deg) scale(0.95)'
               : 'translateX(-50%) rotateY(0deg) scale(1)',
@@ -361,36 +361,7 @@ function GalleryCarousel() {
           </div>
         </div>
 
-        {/* Arrow buttons — styled like ArrowBtn (white bg, blue border, hover fills blue) */}
-        {(['prev', 'next'] as const).map(dir => (
-          <button key={dir} onClick={() => navigate(dir)} style={{
-            position: 'absolute', top: '50%',
-            [dir === 'prev' ? 'left' : 'right']: 14,
-            transform: 'translateY(-50%)',
-            zIndex: 9, width: 44, height: 44,
-            background: 'white',
-            border: `1.5px solid ${BRAND.primary}`,
-            color: BRAND.primary, fontSize: 16, cursor: 'pointer',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            backdropFilter: 'blur(12px)',
-            boxShadow: `0 4px 18px ${BRAND.primaryGlow}`,
-            transition: 'background .2s ease, color .2s ease, box-shadow .2s ease',
-            fontWeight: 700,
-          }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = BRAND.primary;
-              (e.currentTarget as HTMLElement).style.color = 'white';
-              (e.currentTarget as HTMLElement).style.boxShadow = `0 0 20px ${BRAND.primaryGlow}`;
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = 'white';
-              (e.currentTarget as HTMLElement).style.color = BRAND.primary;
-              (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 18px ${BRAND.primaryGlow}`;
-            }}>
-            {dir === 'prev' ? '←' : '→'}
-          </button>
-        ))}
-
+    
         {/* Swipe hint — arrow updated */}
         <div style={{
           position: 'absolute', bottom: 16, right: 20, zIndex: 9,
@@ -887,13 +858,6 @@ function CtaSection({ onOpenOffer }: { onOpenOffer: () => void }) {
             </div>
           ))}
           <div style={{ height: 1, background: 'rgba(0,0,0,.12)' }} />
-          <div style={{ marginTop: 'clamp(24px,3vw,36px)', display: 'flex', flexDirection: 'column', gap: 7 }}>
-            {[['📍', 'Sariaya, Quezon Province'], ['📞', '+63 XXX XXX XXXX'], ['✉️', 'info@villadelprado.ph']].map(([icon, text]) => (
-              <div key={text as string} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 11, color: 'rgba(0,0,0,.38)', fontWeight: 500 }}>
-                <span>{icon}</span><span>{text}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -989,7 +953,9 @@ export default function Home() {
               </p>
               <div className="h-once-cta flex gap-3 mb-auto">
                 <Link to="/booking" className="btn-primary cta-primary">Reserve Now</Link>
-                <Link to="/gallery" className="btn-ghost">Explore →</Link>
+                <Link to="https://www.facebook.com/villadelpradoresort" className="btn-ghost">Message Us <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                </svg></Link>
               </div>
             </>
           )}
@@ -1020,7 +986,9 @@ export default function Home() {
                 </p>
                 <div className="h-once-cta flex flex-wrap gap-3 items-center">
                   <Link to="/booking" className="btn-primary cta-primary">Reserve Now</Link>
-                  <Link to="/gallery" className="btn-ghost">Gallery →</Link>
+                  <Link to="https://www.facebook.com/villadelpradoresort" className="btn-ghost">Message Us                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                </svg></Link>
                 </div>
               </>
             )}
@@ -1142,6 +1110,10 @@ export default function Home() {
       {/* ═══ AMENITIES ═══ */}
       <AmenitiesSection />
 
+
+
+
+
       {/* ═══ GALLERY ═══ */}
       <section className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-[10%]" style={{ background: '#f5f3ee' }}>
         <div className="max-w-7xl mx-auto">
@@ -1156,6 +1128,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+
+
+
 
       {/* ═══ GUEST STORIES ═══ */}
       <GuestStoriesSection />
