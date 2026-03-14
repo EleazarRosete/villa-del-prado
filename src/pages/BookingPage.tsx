@@ -1,11 +1,5 @@
 import { useState } from 'react';
 
-// ─── BRAND ───────────────────────────────────────────────────────────────────
-const P  = '#0077a8';
-const PD = '#005f8a';
-const PL = '#e0f2fa';
-const PG = 'rgba(0,119,168,0.25)';
-
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 interface EventPackage {
   name: string;
@@ -41,7 +35,7 @@ const eventPackages: EventPackage[] = [
     name: 'Debut Party',
     price: '₱12,000',
     unit: 'Starting Rate',
-    desc: 'Celebrate an 18th birthday in grand style with a full beachfront or function hall setup tailored to your debutante\'s vision.',
+    desc: "Celebrate an 18th birthday in grand style with a full beachfront or function hall setup tailored to your debutante's vision.",
     includes: [
       'Venue for up to 100 guests',
       'Custom venue dressing & lights',
@@ -110,149 +104,60 @@ const faqs: FaqItem[] = [
 ];
 
 // ─── FAQ ITEM ─────────────────────────────────────────────────────────────────
-function FaqRow({ item }: { item: FaqItem; index: number }) {
+function FaqRow({ item }: { item: FaqItem }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div
-      style={{
-        background: 'white',
-        border: `1px solid ${open ? P + '33' : 'rgba(0,0,0,0.07)'}`,
-        marginBottom: 2,
-        transition: 'border-color .2s ease',
-      }}
-    >
+    <div className={`booking-faq__row ${open ? 'booking-faq__row--open' : ''}`}>
       <button
         onClick={() => setOpen(v => !v)}
-        className="w-full flex items-center justify-between text-left"
-        style={{ padding: '18px 20px', background: 'transparent', border: 'none', cursor: 'pointer', gap: 16 }}
+        className="booking-faq__trigger"
       >
-        <span className="font-bold text-neutral-900" style={{ fontSize: 12, flex: 1 }}>
-          {item.q}
-        </span>
-        <div
-          style={{
-            width: 20,
-            height: 20,
-            background: open ? P : '#efefed',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexShrink: 0,
-            transition: 'background .2s ease',
-          }}
-        >
+        <span className="booking-faq__question">{item.q}</span>
+        <div className={`booking-faq__icon ${open ? 'booking-faq__icon--open' : ''}`}>
           <svg
             width="9" height="9" viewBox="0 0 24 24" fill="none"
             stroke={open ? 'white' : '#aaa'} strokeWidth="2.5"
             strokeLinecap="round" strokeLinejoin="round"
-            style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .25s ease' }}
+            className={`booking-faq__chevron ${open ? 'booking-faq__chevron--open' : ''}`}
           >
             <polyline points="6 9 12 15 18 9" />
           </svg>
         </div>
       </button>
-      <div
-        style={{
-          maxHeight: open ? 200 : 0,
-          overflow: 'hidden',
-          transition: 'max-height .35s cubic-bezier(.16,1,.3,1)',
-        }}
-      >
-        <p
-          className="font-light text-neutral-500 leading-relaxed"
-          style={{ padding: '0 20px 18px', fontSize: 12, borderTop: `1px solid ${P}1a` }}
-        >
-          {item.a}
-        </p>
+      <div className={`booking-faq__body ${open ? 'booking-faq__body--open' : 'booking-faq__body--closed'}`}>
+        <p className="booking-faq__answer">{item.a}</p>
       </div>
     </div>
   );
 }
 
 // ─── PACKAGE CARD ─────────────────────────────────────────────────────────────
-function PackageCard({ pkg }: { pkg: EventPackage; index: number }) {
+function PackageCard({ pkg }: { pkg: EventPackage }) {
   return (
-    <div
-      style={{
-        background: '#f5f3ee',
-        border: pkg.featured ? `2px solid ${P}` : '1px solid rgba(0,0,0,0.07)',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        transition: 'box-shadow .3s ease',
-      }}
-      onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.1)')}
-      onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
-    >
+    <div className={`booking-pkg-card ${pkg.featured ? 'booking-pkg-card--featured' : ''}`}>
       {/* Card Header */}
-      <div
-        style={{
-          padding: '28px 24px 20px',
-          background: pkg.featured ? P : PL,
-          position: 'relative',
-        }}
-      >
+      <div className={`booking-pkg-card__header ${pkg.featured ? 'booking-pkg-card__header--featured' : ''}`}>
         {pkg.featured && (
-          <span
-            className="font-extrabold uppercase"
-            style={{
-              position: 'absolute',
-              top: 12,
-              right: 12,
-              background: 'white',
-              color: P,
-              fontSize: 8,
-              letterSpacing: '0.12em',
-              padding: '5px 10px',
-            }}
-          >
-            Most Booked
-          </span>
+          <span className="booking-pkg-card__badge">Most Booked</span>
         )}
-        <p
-          className="font-black leading-none"
-          style={{ fontSize: 'clamp(22px,4vw,30px)', color: pkg.featured ? 'white' : P, marginBottom: 4 }}
-        >
-          {pkg.price}
-        </p>
-        <p
-          className="font-semibold uppercase"
-          style={{ fontSize: 10, color: pkg.featured ? 'rgba(255,255,255,0.65)' : P, opacity: pkg.featured ? 1 : 0.7, letterSpacing: '0.08em' }}
-        >
+        <p className="booking-pkg-card__price">{pkg.price}</p>
+        <p className={`booking-pkg-card__unit ${pkg.featured ? 'booking-pkg-card__unit--featured' : ''}`}>
           {pkg.unit}
         </p>
       </div>
 
       {/* Card Body */}
-      <div style={{ padding: '20px 24px 28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-        <p
-          className="font-black uppercase"
-          style={{ fontSize: 12, letterSpacing: '0.1em', color: '#111', marginBottom: 8 }}
-        >
-          {pkg.name}
-        </p>
-        <p
-          className="font-light leading-relaxed text-neutral-500"
-          style={{ fontSize: 11, marginBottom: 18, flex: 1 }}
-        >
-          {pkg.desc}
-        </p>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
+      <div className="booking-pkg-card__body">
+        <p className="booking-pkg-card__name">{pkg.name}</p>
+        <p className="booking-pkg-card__desc">{pkg.desc}</p>
+        <ul className="booking-pkg-card__list">
           {pkg.includes.map((inc, i) => (
             <li
               key={inc}
-              className="flex items-start font-medium text-neutral-600"
-              style={{
-                fontSize: 11,
-                padding: '5px 0',
-                gap: 8,
-                borderBottom: i < pkg.includes.length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none',
-              }}
+              className={`booking-pkg-card__item ${i < pkg.includes.length - 1 ? 'booking-pkg-card__item--bordered' : ''}`}
             >
-              <span
-                style={{ width: 4, height: 4, background: P, flexShrink: 0, marginTop: 5, display: 'block' }}
-              />
+              <span className="booking-pkg-card__dot" />
               {inc}
             </li>
           ))}
@@ -265,107 +170,55 @@ function PackageCard({ pkg }: { pkg: EventPackage; index: number }) {
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 export default function BookingPage() {
   return (
-    <div className="w-full overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif", background: '#f5f3ee' }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&family=Dancing+Script:wght@700&display=swap');
-        *, *::before, *::after { box-sizing: border-box; }
-
-        @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
-        @keyframes fadeUp   { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
-        @keyframes kenBurns { 0% { transform:scale(1.06); } 100% { transform:scale(1.0); } }
-        @keyframes chevronBob {
-          0%, 100% { transform: translateY(0px); opacity: 0.55; }
-          50%       { transform: translateY(9px); opacity: 0.85; }
-        }
-
-        .hero-serif     { font-family: 'Cormorant Garamond', Georgia, serif !important; }
-        .dancing-script { font-family: 'Dancing Script', cursive !important; }
-
-        body, h1, h2, h3, h4, h5, h6, p, span, div, button, a, input, select, textarea {
-          font-family: 'Montserrat', sans-serif !important;
-        }
-        .hero-serif     { font-family: 'Cormorant Garamond', Georgia, serif !important; }
-        .dancing-script { font-family: 'Dancing Script', cursive !important; }
-
-        .hero-browse-line { animation: fadeUp 1s ease 1.2s both; }
-        .scroll-indicator { animation: fadeUp 1s ease 1.4s both; }
-        .chevron-bob { animation: chevronBob 2.4s cubic-bezier(0.45, 0, 0.55, 1) 1.6s infinite; }
-      `}</style>
+    <div className="booking-page">
 
       {/* ══════════════════════════════════════════════════════
           HERO — 100vh
       ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden w-full" style={{ height: '100vh', minHeight: 600, paddingTop: 70 }}>
+      <section className="booking-hero">
 
         {/* Background */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1920&q=80&auto=format')",
-            animation: 'kenBurns 18s ease-out forwards',
-          }}
-        />
+        <div className="booking-hero__bg" />
 
         {/* Overlays */}
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.38)' }} />
-        <div className="absolute inset-x-0 top-0"    style={{ height: '50%', background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)' }} />
-        <div className="absolute inset-x-0 bottom-0" style={{ height: '35%', background: 'linear-gradient(to top,    rgba(0,0,0,0.45) 0%, transparent 100%)' }} />
+        <div className="booking-hero__overlay-base" />
+        <div className="booking-hero__overlay-top" />
+        <div className="booking-hero__overlay-bottom" />
 
         {/* Content */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+        <div className="booking-hero__content">
 
           {/* Eyebrow */}
-          <div
-            className="flex items-center gap-3 mb-6"
-            style={{ animation: 'fadeUp .6s cubic-bezier(.16,1,.3,1) .1s both' }}
-          >
-            <div style={{ width: 28, height: 1, background: 'rgba(255,255,255,0.45)' }} />
-            <span style={{ fontSize: '9px', fontWeight: 600, letterSpacing: '0.26em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.60)' }}>
-              Booking & Reservations
-            </span>
-            <div style={{ width: 28, height: 1, background: 'rgba(255,255,255,0.45)' }} />
+          <div className="booking-hero__eyebrow">
+            <div className="booking-hero__eyebrow-line" />
+            <span className="booking-hero__eyebrow-text">Booking & Reservations</span>
+            <div className="booking-hero__eyebrow-line" />
           </div>
 
           {/* Headline */}
-          <h1 className="m-0 leading-none" style={{ animation: 'fadeUp .9s cubic-bezier(.16,1,.3,1) .25s both' }}>
-            <span className="hero-serif block" style={{ fontSize: 'clamp(64px, 11vw, 130px)', fontWeight: 700, color: 'white', lineHeight: 0.88, letterSpacing: '-0.01em' }}>
-              Plan Your
-            </span>
-            <span className="hero-serif block" style={{ fontSize: 'clamp(58px, 10.5vw, 124px)', fontWeight: 300, fontStyle: 'italic', color: 'white', lineHeight: 1.0, letterSpacing: '-0.015em' }}>
-              Escape
-            </span>
+          <h1 className="booking-hero__h1">
+            <span className="booking-hero__line1 hero-serif">Plan Your</span>
+            <span className="booking-hero__line2 hero-serif">Escape</span>
           </h1>
 
           {/* Subtitle */}
-          <p
-            className="mt-6 mb-0"
-            style={{
-              fontSize: 'clamp(12px, 1.5vw, 14px)',
-              fontWeight: 300,
-              color: 'rgba(255,255,255,0.60)',
-              maxWidth: 380,
-              lineHeight: 1.7,
-              letterSpacing: '0.02em',
-              animation: 'fadeUp .8s cubic-bezier(.16,1,.3,1) .55s both',
-            }}
-          >
+          <p className="booking-hero__subtitle">
             Reserve your stay, event, or special occasion at Villa Del Prado —
             where every celebration finds its perfect beachfront backdrop.
           </p>
 
           {/* Browse CTA */}
-          <div className="hero-browse-line flex flex-col items-center" style={{ marginTop: '6vh' }}>
+          <div className="booking-hero__browse">
             <span
+              className="booking-hero__browse-label"
               onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
-              style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', cursor: 'pointer' }}
             >
               Reserve
             </span>
-            <div className="scroll-indicator" style={{ marginTop: '1vh' }}>
+            <div className="booking-hero__chevron-wrap">
               <svg
-                className="chevron-bob"
+                className="booking-hero__chevron-icon"
                 width="22" height="13" viewBox="0 0 22 13" fill="none"
-                style={{ display: 'block', cursor: 'pointer' }}
                 onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <polyline points="1,1 11,11 21,1" stroke="rgba(255,255,255,0.55)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -379,39 +232,31 @@ export default function BookingPage() {
       {/* ══════════════════════════════════════════════════════
           BOOKING EMBED
       ══════════════════════════════════════════════════════ */}
-      <section id="booking-section" className="py-14 sm:py-20" style={{ background: '#f5f3ee' }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-[8%]">
+      <section id="booking-section" className="booking-embed-section">
+        <div className="booking-embed-section__inner">
 
-          <span
-            className="inline-block font-extrabold uppercase px-4 py-1.5 mb-3"
-            style={{ fontSize: 9, letterSpacing: '0.2em', background: PL, color: P }}
-          >
-            Instant Booking
-          </span>
-          <h2 className="font-black tracking-tight leading-tight text-neutral-900 m-0" style={{ fontSize: 'clamp(24px, 5vw, 52px)' }}>
-            Reserve Your <span style={{ color: P }}>Dates.</span>
+          <span className="booking-section__tag">Instant Booking</span>
+          <h2 className="booking-section__heading">
+            Reserve Your <span>Dates.</span>
           </h2>
-          <p className="text-neutral-400 font-light mt-2 mb-8" style={{ fontSize: 12 }}>
+          <p className="booking-section__subheading">
             Pick your preferred date — we confirm within 24 hours.
           </p>
 
           {/* Embed Box */}
-          <div style={{ background: 'white', border: `1.5px solid ${P}22`, overflow: 'hidden' }}>
+          <div className="booking-embed__box">
 
             {/* Header bar */}
-            <div
-              className="flex items-center justify-between"
-              style={{ background: `linear-gradient(to right, ${P}, ${PD})`, padding: '20px 28px' }}
-            >
+            <div className="booking-embed__header">
               <div>
-                <p className="font-bold text-white m-0" style={{ fontSize: 13 }}>Villa Del Prado — Book a Stay</p>
-                <p className="font-light m-0" style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)' }}>Powered by Calendly</p>
+                <p className="booking-embed__header-title">Villa Del Prado — Book a Stay</p>
+                <p className="booking-embed__header-sub">Powered by Calendly</p>
               </div>
-              <p className="m-0" style={{ fontSize: 10, color: 'rgba(255,255,255,0.5)' }}>24hr confirmation</p>
+              <p className="booking-embed__header-note">24hr confirmation</p>
             </div>
 
             {/* Body — replace inner div with Calendly iframe */}
-            <div className="flex items-center justify-center" style={{ minHeight: 460, padding: '48px 24px', background: 'white' }}>
+            <div className="booking-embed__body">
               {/*
                 Replace this block with:
                 <iframe
@@ -422,29 +267,28 @@ export default function BookingPage() {
                   title="Book at Villa Del Prado"
                 />
               */}
-              <div className="text-center" style={{ maxWidth: 420 }}>
-                <h3 className="font-black text-neutral-900 mb-2" style={{ fontSize: 16 }}>
+              <div className="booking-embed__placeholder">
+                <h3 className="booking-embed__placeholder-title">
                   Calendly Booking Widget
                 </h3>
-                <p className="font-light text-neutral-400 leading-relaxed mb-7" style={{ fontSize: 12 }}>
+                <p className="booking-embed__placeholder-desc">
                   Your Calendly scheduling widget will appear here. Replace this placeholder with your actual Calendly embed code or link.
                 </p>
                 <a
                   href="https://calendly.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-white font-extrabold uppercase"
-                  style={{ fontSize: 10, letterSpacing: '0.15em', padding: '14px 28px', background: `linear-gradient(to bottom right, ${P}, ${PD})`, boxShadow: `0 4px 18px ${PG}`, textDecoration: 'none' }}
+                  className="booking-embed__cta-btn"
                 >
                   Open Calendly Booking
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                   </svg>
                 </a>
-                <div className="flex flex-wrap justify-center gap-4 mt-6 pt-6" style={{ borderTop: '1px solid #f0ede8' }}>
-                  <span className="font-light text-neutral-400" style={{ fontSize: 11 }}>Or reach us directly:</span>
-                  <a href="https://www.facebook.com/villadelpradoresort" target="_blank" rel="noopener noreferrer" className="font-bold" style={{ fontSize: 11, color: P, textDecoration: 'none', letterSpacing: '0.05em' }}>Facebook</a>
-                  <a href="mailto:info@villadelpradoresort.com" className="font-bold" style={{ fontSize: 11, color: P, textDecoration: 'none', letterSpacing: '0.05em' }}>Email Us</a>
+                <div className="booking-embed__alt-contact">
+                  <span className="booking-embed__alt-label">Or reach us directly:</span>
+                  <a href="https://www.facebook.com/villadelpradoresort" target="_blank" rel="noopener noreferrer" className="booking-embed__alt-link">Facebook</a>
+                  <a href="mailto:info@villadelpradoresort.com" className="booking-embed__alt-link">Email Us</a>
                 </div>
               </div>
             </div>
@@ -455,29 +299,24 @@ export default function BookingPage() {
       {/* ══════════════════════════════════════════════════════
           EVENT PACKAGES
       ══════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20" style={{ background: 'white' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[8%]">
+      <section className="booking-packages-section">
+        <div className="booking-packages-section__inner">
 
-          <span
-            className="inline-block font-extrabold uppercase px-4 py-1.5 mb-3"
-            style={{ fontSize: 9, letterSpacing: '0.2em', background: PL, color: P }}
-          >
-            Event Packages & Rates
-          </span>
-          <h2 className="font-black tracking-tight leading-tight text-neutral-900 m-0" style={{ fontSize: 'clamp(24px, 5vw, 52px)' }}>
-            Celebrate in <span style={{ color: P }}>Style.</span>
+          <span className="booking-section__tag">Event Packages & Rates</span>
+          <h2 className="booking-section__heading">
+            Celebrate in <span>Style.</span>
           </h2>
-          <p className="text-neutral-400 font-light mt-2 mb-10" style={{ fontSize: 12 }}>
+          <p className="booking-section__subheading">
             All packages include dedicated staff support and full resort access.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {eventPackages.map((pkg, i) => (
-              <PackageCard key={pkg.name} pkg={pkg} index={i} />
+          <div className="booking-packages__grid">
+            {eventPackages.map((pkg) => (
+              <PackageCard key={pkg.name} pkg={pkg} />
             ))}
           </div>
 
-          <p className="text-center font-light text-neutral-400 mt-8" style={{ fontSize: 10 }}>
+          <p className="booking-packages__footnote">
             Rates vary during peak seasons (Holy Week, Christmas, New Year, summer). Contact us for current pricing and availability.
           </p>
         </div>
@@ -486,39 +325,26 @@ export default function BookingPage() {
       {/* ══════════════════════════════════════════════════════
           STATS STRIP
       ══════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20" style={{ background: '#f5f3ee' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-[8%]">
+      <section className="booking-stats-section">
+        <div className="booking-stats-section__inner">
 
-          <div className="text-center mb-10">
-            <span
-              className="inline-block font-extrabold uppercase px-4 py-1.5 mb-3"
-              style={{ fontSize: 9, letterSpacing: '0.2em', background: PL, color: P }}
-            >
-              Our Track Record
-            </span>
-            <h2 className="font-black tracking-tight text-neutral-900 m-0" style={{ fontSize: 'clamp(20px, 4vw, 42px)' }}>
-              Trusted for Every <span style={{ color: P }}>Occasion.</span>
+          <div className="booking-stats__header">
+            <span className="booking-section__tag">Our Track Record</span>
+            <h2 className="booking-section__heading">
+              Trusted for Every <span>Occasion.</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="booking-stats__grid">
             {[
               { stat: '500+',  label: 'Guests Served' },
               { stat: '100+',  label: 'Events Hosted' },
               { stat: '4.8/5', label: 'Event Rating'  },
               { stat: '500m',  label: 'Beachfront'    },
             ].map((s) => (
-              <div
-                key={s.label}
-                className="bg-white text-center"
-                style={{ padding: '28px 12px', border: '1px solid rgba(0,0,0,0.07)' }}
-              >
-                <p className="font-black leading-none m-0 mb-2" style={{ fontSize: 'clamp(22px, 4vw, 32px)', color: P }}>
-                  {s.stat}
-                </p>
-                <p className="font-bold uppercase text-neutral-400 m-0" style={{ fontSize: 9, letterSpacing: '0.12em' }}>
-                  {s.label}
-                </p>
+              <div key={s.label} className="booking-stats__tile">
+                <p className="booking-stats__value">{s.stat}</p>
+                <p className="booking-stats__label">{s.label}</p>
               </div>
             ))}
           </div>
@@ -528,24 +354,19 @@ export default function BookingPage() {
       {/* ══════════════════════════════════════════════════════
           FAQ
       ══════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20" style={{ background: 'white' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      <section className="booking-faq-section">
+        <div className="booking-faq-section__inner">
 
-          <div className="text-center mb-10">
-            <span
-              className="inline-block font-extrabold uppercase px-4 py-1.5 mb-3"
-              style={{ fontSize: 9, letterSpacing: '0.2em', background: PL, color: P }}
-            >
-              FAQ
-            </span>
-            <h2 className="font-black tracking-tight text-neutral-900 m-0" style={{ fontSize: 'clamp(20px, 4vw, 42px)' }}>
-              Questions? We Have <span style={{ color: P }}>Answers.</span>
+          <div className="booking-faq__header">
+            <span className="booking-section__tag">FAQ</span>
+            <h2 className="booking-section__heading">
+              Questions? We Have <span>Answers.</span>
             </h2>
           </div>
 
           <div>
             {faqs.map((faq, i) => (
-              <FaqRow key={i} item={faq} index={i} />
+              <FaqRow key={i} item={faq} />
             ))}
           </div>
 
@@ -555,56 +376,39 @@ export default function BookingPage() {
       {/* ══════════════════════════════════════════════════════
           CONTACT CTA
       ══════════════════════════════════════════════════════ */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-[8%]" style={{ background: '#f5f3ee' }}>
-        <div className="max-w-6xl mx-auto">
-          <div
-            className="p-7 sm:p-12 md:p-14 relative overflow-hidden"
-            style={{ background: `linear-gradient(135deg, ${PL} 0%, #d0eaf8 100%)` }}
-          >
+      <section className="booking-cta-section">
+        <div className="booking-cta-section__inner">
+          <div className="booking-cta__card">
             {/* Watermark */}
-            <div
-              className="absolute right-6 top-4 font-black leading-none select-none pointer-events-none"
-              style={{ fontSize: 'clamp(60px, 14vw, 130px)', color: 'rgba(0,119,168,0.05)', letterSpacing: '-0.04em' }}
-            >
-              EVENT
-            </div>
+            <div className="booking-cta__watermark">EVENT</div>
 
-            <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center relative z-10">
+            <div className="booking-cta__grid">
               <div>
-                <span
-                  className="inline-block font-extrabold uppercase px-4 py-1.5 mb-4"
-                  style={{ fontSize: 9, letterSpacing: '0.2em', background: 'white', color: P }}
-                >
-                  Still Have Questions?
-                </span>
-                <h2 className="font-black tracking-tight text-neutral-900 m-0 mb-3 leading-tight" style={{ fontSize: 'clamp(20px, 4vw, 40px)' }}>
-                  Our Team is <span style={{ color: P }}>Ready.</span>
+                <span className="booking-cta__tag">Still Have Questions?</span>
+                <h2 className="booking-cta__heading">
+                  Our Team is <span>Ready.</span>
                 </h2>
-                <p className="text-neutral-500 font-light leading-relaxed mb-7" style={{ fontSize: 13 }}>
+                <p className="booking-cta__desc">
                   From intimate beach weddings to full corporate retreats — our dedicated events team handles every detail so you can focus on celebrating.
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="booking-cta__actions">
                   <a
                     href="https://www.facebook.com/villadelpradoresort"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-white font-extrabold uppercase"
-                    style={{ fontSize: 10, letterSpacing: '0.15em', padding: '14px 24px', background: `linear-gradient(to bottom right, ${P}, ${PD})`, boxShadow: `0 4px 18px ${PG}`, textDecoration: 'none', minHeight: 48 }}
+                    className="booking-cta__btn"
                   >
-                    Message on Facebook
+                    Message Us
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                </svg>
                   </a>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="booking-cta__tags-grid">
                 {['Weddings', 'Debuts', 'Corporate', 'Reunions', 'Birthdays', 'Graduations', 'School Outings', 'Anniversaries'].map((tag) => (
-                  <div
-                    key={tag}
-                    className="bg-white flex items-center justify-center font-extrabold uppercase"
-                    style={{ fontSize: 9, letterSpacing: '0.12em', color: P, padding: '16px 8px', textAlign: 'center' }}
-                  >
-                    {tag}
-                  </div>
+                  <div key={tag} className="booking-cta__event-tag">{tag}</div>
                 ))}
               </div>
             </div>
