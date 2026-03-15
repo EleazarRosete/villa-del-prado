@@ -98,8 +98,8 @@ const faqs: FaqItem[] = [
     a: 'No outside food or drinks are allowed. We have a full restaurant and bar with great food and drinks at reasonable prices.',
   },
   {
-    q: 'How far is Villa Del Prado from Manila?',
-    a: 'We are about 3 to 4 hours from Manila via the SLEX/STAR Tollway to Sariaya, Quezon. Detailed directions are available on request.',
+    q: 'How far is Demo Beach Resort from Manila?',
+    a: 'We are about 2 to 3 hours from Manila via the SLEX/STAR Tollway to Batangas. Detailed directions are available on request.',
   },
 ];
 
@@ -203,7 +203,7 @@ export default function BookingPage() {
 
           {/* Subtitle */}
           <p className="booking-hero__subtitle">
-            Reserve your stay, event, or special occasion at Villa Del Prado —
+            Reserve your stay, event, or special occasion at Demo Beach Resort —
             where every celebration finds its perfect beachfront backdrop.
           </p>
 
@@ -249,7 +249,7 @@ export default function BookingPage() {
             {/* Header bar */}
             <div className="booking-embed__header">
               <div>
-                <p className="booking-embed__header-title">Villa Del Prado — Book a Stay</p>
+                <p className="booking-embed__header-title">Demo Beach Resort — Book a Stay</p>
                 <p className="booking-embed__header-sub">Powered by Calendly</p>
               </div>
               <p className="booking-embed__header-note">24hr confirmation</p>
@@ -264,7 +264,7 @@ export default function BookingPage() {
                   width="100%"
                   height="630"
                   frameBorder="0"
-                  title="Book at Villa Del Prado"
+                  title="Book at Demo Beach Resort"
                 />
               */}
               <div className="booking-embed__placeholder">
@@ -287,8 +287,8 @@ export default function BookingPage() {
                 </a>
                 <div className="booking-embed__alt-contact">
                   <span className="booking-embed__alt-label">Or reach us directly:</span>
-                  <a href="https://www.facebook.com/villadelpradoresort" target="_blank" rel="noopener noreferrer" className="booking-embed__alt-link">Facebook</a>
-                  <a href="mailto:info@villadelpradoresort.com" className="booking-embed__alt-link">Email Us</a>
+                  <a href="https://www.facebook.com/eleazar.rosete.2024/" target="_blank" rel="noopener noreferrer" className="booking-embed__alt-link">Facebook</a>
+                  <a href="mailto:ele.rosete@gmail.com" className="booking-embed__alt-link">Email Us</a>
                 </div>
               </div>
             </div>
@@ -393,7 +393,7 @@ export default function BookingPage() {
                 </p>
                 <div className="booking-cta__actions">
                   <a
-                    href="https://www.facebook.com/villadelpradoresort"
+                    href="https://www.facebook.com/eleazar.rosete.2024/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="booking-cta__btn"

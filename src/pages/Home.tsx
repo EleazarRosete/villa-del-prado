@@ -7,12 +7,10 @@ interface GalleryItem { img: string; label: string; }
 
 // ─── SLIDES ─────────────────────────────────────────────────────────────────
 const SLIDES = [
-  { img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=240&q=70', label: 'Nipa Cabanas', sub: 'Beachfront Huts', accent: '#fcd34d' },
-  { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=240&q=70', label: 'White Sand Beach', sub: 'Sariaya, Quezon', accent: '#5eead4' },
-  { img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=240&q=70', label: 'Resort Pool', sub: 'With Water Slide', accent: '#93c5fd' },
-  { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=240&q=70', label: 'White Sand Beach', sub: 'Sariaya, Quezon', accent: '#5eead4' },
-  { img: 'https://images.unsplash.com/photo-1530053969600-caed2596d242?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1530053969600-caed2596d242?w=240&q=70', label: 'Water Sports', sub: 'Kayak · Jet Ski', accent: '#6ee7b7' },
-  { img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=240&q=70', label: 'Sunrise Views', sub: 'Golden Hour', accent: '#fca5a5' },
+  { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=240&q=70', label: 'Shoreline Papag Sanctuary', sub: 'Beachfront Huts', accent: '#fcd34d' },
+  { img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=240&q=70', label: 'Coastal Cabana', sub: 'Open-Air Retreat', accent: '#6ee7b7' },
+  { img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=240&q=70', label: 'Sanctuary Family Suite', sub: 'Spacious & Luxurious', accent: '#93c5fd' },
+  { img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1920&q=80&auto=format', thumb: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=240&q=70', label: 'Palmera Villa – King', sub: 'Premium Villa', accent: '#fca5a5' },
 ];
 
 const N = SLIDES.length;
@@ -28,10 +26,10 @@ const BRAND = {
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
 const ROOMS: Room[] = [
-  { name: 'Nipa Hut Cabana', tag: 'Beachfront', tagBg: 'bg-sky-100', tagText: 'text-sky-700', desc: 'Authentic Filipino nipa hut on the shore with bamboo interiors and sea breeze.', price: '₱2,500', beds: '1 King Bed', guests: 'Up to 2 guests', img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80' },
-  { name: 'Standard Room', tag: 'Most Popular', tagBg: 'bg-sky-100', tagText: 'text-sky-700', desc: 'Air-conditioned room with private bathroom and lush garden views.', price: '₱1,800', beds: '1 Queen Bed', guests: 'Up to 2 guests', img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80' },
-  { name: 'Deluxe Room', tag: 'Sea View', tagBg: 'bg-blue-100', tagText: 'text-blue-700', desc: 'Ocean-facing balcony with premium linens and Sariaya coastline views.', price: '₱2,200', beds: '1 King Bed', guests: 'Up to 2 guests', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80' },
-  { name: 'Family Suite', tag: 'Best Value', tagBg: 'bg-amber-100', tagText: 'text-amber-700', desc: 'Spacious suite with extra beds, open-plan layout and private terrace.', price: '₱3,200', beds: '2 Beds', guests: 'Up to 5 guests', img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80' },
+  { name: 'Shoreline Papag Sanctuary', tag: 'Beachfront', tagBg: 'bg-sky-100', tagText: 'text-sky-700', desc: 'Our most coveted hut, perched directly on the sand with unobstructed panoramic sea views. Fall asleep to the rhythm of the waves and wake up to a private slice of paradise.', price: '₱2,040', beds: '1 King Bed', guests: 'Up to 6 guests', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80' },
+  { name: 'Breeze Standard Room', tag: 'Most Popular', tagBg: 'bg-sky-100', tagText: 'text-sky-700', desc: 'Thoughtfully appointed and naturally ventilated, our Standard Fan Room offers a serene haven for couples and intimate groups — understated elegance at exceptional value.', price: '₱2,640', beds: '1 Queen Bed', guests: 'Up to 4 guests', img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80' },
+  { name: 'Grand Duplex Suite "A"', tag: 'Sea View', tagBg: 'bg-blue-100', tagText: 'text-blue-700', desc: 'A premium air-conditioned sanctuary for larger groups, Duplex A combines generous proportions, resort-view balcony access, and cool comfort — an indulgent base for an unforgettable stay.', price: '₱5,400', beds: '1 King Bed', guests: 'Up to 10 guests', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80' },
+  { name: 'Sanctuary Family Suite', tag: 'Best Value', tagBg: 'bg-amber-100', tagText: 'text-amber-700', desc: 'Thoughtfully designed for the entire family, this expansive room blends modern luxury with warm, welcoming interiors — generous sleeping quarters, a private living area, and serene garden views await.', price: '₱8,400', beds: '2 Beds', guests: 'Up to 8 guests', img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80' },
 ];
 
 const GALLERY: GalleryItem[] = [
@@ -353,7 +351,7 @@ function GalleryCarousel() {
               position: 'absolute', bottom: 20, left: 20, right: 20,
               animation: animating ? 'none' : 'galLabelUp .4s cubic-bezier(.16,1,.3,1) both',
             }}>
-              <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase', color: `${BRAND.primary}dd`, marginBottom: 4 }}>Villa Del Prado</div>
+              <div style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.22em', textTransform: 'uppercase', color: `${BRAND.primary}dd`, marginBottom: 4 }}>Demo Beach Resort</div>
               <div style={{ fontSize: 13, fontWeight: 800, letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.92)' }}>
                 {animating ? GALLERY[pendingIdx].label : GALLERY[current].label}
               </div>
@@ -394,7 +392,7 @@ function GalleryCarousel() {
 
 // ─── AMENITIES EXPAND CARDS ──────────────────────────────────────────────────
 const AM_CARDS = [
-  { id: 'water', label: 'Beach & Water', headline: 'Where the\nSea Begins.', desc: 'Immerse yourself in 500m of pristine white sand, a resort pool with water slide, kiddie pool, kayaking, jet ski rentals, and guided boat tours along the Sariaya coastline.', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=85' },
+  { id: 'water', label: 'Beach & Water', headline: 'Where the\nSea Begins.', desc: 'Immerse yourself in 500m of pristine white sand, a resort pool with water slide, kiddie pool, kayaking, jet ski rentals, and guided boat tours along the Batangas coastline.', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=85' },
   { id: 'sports', label: 'Sports & Rec', headline: 'Play Hard.\nRest Easy.', desc: 'Stay active with beach volleyball, basketball, fishing with local guides, scenic jogging paths, guided sunrise spots, and bike rentals to explore the resort grounds.', img: 'https://images.unsplash.com/photo-1530053969600-caed2596d242?w=900&q=85' },
   { id: 'dining', label: 'Dining & Nights', headline: 'Flavors by\nthe Shore.', desc: 'Savor Filipino and international cuisine at our beachside restaurant, sip cocktails at the beach bar, enjoy weekend live music, videoke nights, and open-air BBQ sessions.', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85' },
   { id: 'events', label: 'Events', headline: 'Every\nOccasion.', desc: 'From intimate beachfront weddings and elegant debut celebrations to corporate team buildings and family reunions — every event is crafted with care and coastal charm.', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&q=85' },
@@ -418,14 +416,14 @@ function AmenitiesSection() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 5%' }}>
         <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', justifyContent: 'space-between', gap: 24, marginBottom: 'clamp(32px,5vw,56px)' }}>
           <div>
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.28em', textTransform: 'uppercase', color: 'rgba(0,0,0,.3)', marginBottom: 10 }}>— Villa Del Prado</p>
+            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.28em', textTransform: 'uppercase', color: 'rgba(0,0,0,.3)', marginBottom: 10 }}>— Demo Beach Resort</p>
             <h2 style={{ fontSize: 'clamp(28px, 5.5vw, 60px)', fontWeight: 900, color: '#111', lineHeight: .95, letterSpacing: '-1px', margin: 0 }}>
               Life at<br /><span style={{ color: BRAND.primary }}>the Resort.</span>
             </h2>
           </div>
           <div style={{ maxWidth: 280, paddingTop: 4 }}>
             <p style={{ fontSize: 13, color: 'rgba(0,0,0,.45)', fontWeight: 300, lineHeight: 1.75, marginBottom: 20 }}>
-              From sunrise swims to candlelit dinners — every moment at Villa Del Prado is designed to be remembered.
+              From sunrise swims to candlelit dinners — every moment at Demo Beach Resort is designed to be remembered.
             </p>
             {/* Arrow → consistent with rest of site */}
             <Link to="/amenities" className="btn-outline">View All Amenities →</Link>
@@ -495,7 +493,7 @@ function AmenitiesSection() {
 const GUEST_REVIEWS = [
   { name: 'Maria Santos',       date: 'July 20, 2025',  platform: 'Booking.com', avatar: 'MS', avatarBg: '#0077a8', quote: "The most relaxing beach trip we've ever had! Kids absolutely loved the pool slide and the beach was pristine. Staff were very helpful with instructions and incredibly responsive to any questions. Would wholeheartedly recommend to everyone!", rating: 5 },
   { name: 'John Reyes',         date: 'May 27, 2025',   platform: 'Booking.com', avatar: 'JR', avatarBg: '#005f8a', quote: "Absolutely Wonderful! 🌟 The Villa was exactly what my family and I had all hoped for — a spacious, well-equipped house set in beautiful grounds. Couldn't have been more perfect for our group getaway!", rating: 5 },
-  { name: 'Megan Cruz',         date: 'May 18, 2025',   platform: 'Booking.com', avatar: 'MC', avatarBg: '#0099cc', quote: "I booked Villa Del Prado for my sister's bachelorette party with a group of 18 guests, and it was absolutely perfect for us. The house, garden, and beachfront made every moment magical.", rating: 5 },
+  { name: 'Megan Cruz',         date: 'May 18, 2025',   platform: 'Booking.com', avatar: 'MC', avatarBg: '#0099cc', quote: "I booked Demo Beach Resort for my sister's bachelorette party with a group of 18 guests, and it was absolutely perfect for us. The house, garden, and beachfront made every moment magical.", rating: 5 },
   { name: 'Georgia Lim',        date: 'May 5, 2025',    platform: 'Booking.com', avatar: 'GL', avatarBg: '#004f72', quote: "Dan was a super host and was there if I needed anything, and incredibly helpful in the run up to the trip. We used Dan's recommendation of the Luxury Private Chef which was amazing. The house itself was stunning.", rating: 5 },
   { name: 'Ana Reyes',          date: 'April 12, 2025', platform: 'Booking.com', avatar: 'AR', avatarBg: '#0077a8', quote: "Perfect venue for our company team building! Great facilities, amazing beach, and outstanding food. Our whole team had a blast and we're already planning our return trip next year.", rating: 5 },
   { name: 'Carlo Mendoza',      date: 'March 28, 2025', platform: 'Booking.com', avatar: 'CM', avatarBg: '#005f8a', quote: "We celebrated our anniversary here and it was absolutely magical. Woke up to the sound of waves every morning. The nipa hut cabana was so cozy and the sunsets were breathtaking. 10/10 experience!", rating: 5 },
@@ -791,7 +789,7 @@ function OfferModal({ open, onClose }: { open: boolean; onClose: () => void }) {
 // ─── CTA SECTION ─────────────────────────────────────────────────────────────
 const CTA_ITEMS = [
   { img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80', heading: 'Reserve Now', sub: 'Book directly and get our best available rates — no hidden fees, instant confirmation.', href: '/booking', isExternal: false },
-  { img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=900&q=80', heading: 'Message on Facebook', sub: 'Have questions? Chat with us directly — we usually reply within the hour.', href: 'https://www.facebook.com/villadelpradoresort', isExternal: true },
+  { img: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=900&q=80', heading: 'Message on Facebook', sub: 'Have questions? Chat with us directly — we usually reply within the hour.', href: 'https://www.facebook.com/eleazar.rosete.2024/', isExternal: true },
   { img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=900&q=80', heading: 'Explore the Off Season', sub: 'Enjoy discounted rates on off-peak dates — peaceful, uncrowded, and just as beautiful.', href: '/booking', isExternal: false },
 ];
 
@@ -831,7 +829,7 @@ function CtaSection({ onOpenOffer }: { onOpenOffer: () => void }) {
               transition: 'opacity 0.55s cubic-bezier(0.4,0,0.2,1)',
             }} />
           ))}
-          <div style={{ position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%) rotate(-90deg)', transformOrigin: 'center center', fontSize: 8, fontWeight: 700, letterSpacing: '.22em', textTransform: 'uppercase', color: 'rgba(0,0,0,.3)', whiteSpace: 'nowrap' }}>Villa Del Prado · Sariaya</div>
+          <div style={{ position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%) rotate(-90deg)', transformOrigin: 'center center', fontSize: 8, fontWeight: 700, letterSpacing: '.22em', textTransform: 'uppercase', color: 'rgba(0,0,0,.3)', whiteSpace: 'nowrap' }}>Demo Beach Resort · Batangas</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -939,7 +937,7 @@ export default function Home() {
             <>
               <div className="h-once-eyebrow flex items-center gap-2 mb-5">
                 <span className="w-1.5 h-1.5 flex-shrink-0" style={{ background: BRAND.primary, animation: 'pulseDot 2.2s ease-in-out infinite' }} />
-                <span className="text-white/50 text-[9px] tracking-[.22em] uppercase font-semibold">Sariaya, Quezon · Philippines</span>
+                <span className="text-white/50 text-[9px] tracking-[.22em] uppercase font-semibold">Batangas · Philippines</span>
               </div>
               <div className="overflow-hidden mb-1">
                 <h1 className="h-once-line1 m-0 text-white font-black tracking-tight" style={{ fontSize: 'clamp(40px, 10vw, 64px)', lineHeight: .9 }}>The Beach</h1>
@@ -953,7 +951,7 @@ export default function Home() {
               </p>
               <div className="h-once-cta flex gap-3 mb-auto">
                 <Link to="/booking" className="btn-primary cta-primary">Reserve Now</Link>
-                <Link to="https://www.facebook.com/villadelpradoresort" className="btn-ghost">Message Us <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <Link to="https://www.facebook.com/eleazar.rosete.2024/" className="btn-ghost">Message Us <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                 </svg></Link>
               </div>
@@ -972,7 +970,7 @@ export default function Home() {
               <>
                 <div className="h-once-eyebrow flex items-center gap-2.5 mb-6">
                   <span className="w-1.5 h-1.5 flex-shrink-0" style={{ background: BRAND.primary, animation: 'pulseDot 2.2s ease-in-out infinite' }} />
-                  <span className="text-white/50 text-[9px] tracking-[.25em] uppercase font-semibold">Sariaya, Quezon · Philippines</span>
+                  <span className="text-white/50 text-[9px] tracking-[.25em] uppercase font-semibold">Batangas · Philippines</span>
                 </div>
                 <div className="overflow-hidden mb-1">
                   <h1 className="h-once-line1 m-0 text-white font-black tracking-tight" style={{ fontSize: 'clamp(44px, 7vw, 112px)', lineHeight: .88 }}>The Beach</h1>
@@ -986,7 +984,7 @@ export default function Home() {
                 </p>
                 <div className="h-once-cta flex flex-wrap gap-3 items-center">
                   <Link to="/booking" className="btn-primary cta-primary">Reserve Now</Link>
-                  <Link to="https://www.facebook.com/villadelpradoresort" className="btn-ghost">Message Us                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <Link to="https://www.facebook.com/eleazar.rosete.2024/" className="btn-ghost">Message Us                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
                 </svg></Link>
                 </div>
@@ -1010,7 +1008,7 @@ export default function Home() {
         <div className="mq-track">
           {Array(4).fill([
             { label: 'Beach Resort', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 8c0 4-4 8-8 8"/><path d="M12 16c-4 0-8-4-8-8"/><line x1="12" y1="3" x2="12" y2="8"/><path d="M12 8v8"/></svg> },
-            { label: 'Sariaya, Quezon', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> },
+            { label: 'Batangas', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> },
             { label: 'Pool & Slide', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 16c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><circle cx="12" cy="6" r="2"/><path d="M12 8v3l3 2"/></svg> },
             { label: 'Water Sports', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M2 20c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/></svg> },
             { label: 'Sunrise Views', icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M2 12h2M19.07 4.93l-1.41 1.41"/><path d="M12 7a5 5 0 0 1 5 5H7a5 5 0 0 1 5-5z"/><path d="M2 17h20"/></svg> },
@@ -1031,15 +1029,15 @@ export default function Home() {
           <div className="sr relative w-full" style={{ height: 320, minHeight: 260 }}>
             <div className="absolute inset-0" style={{ right: '10%', bottom: '10%' }}>
               <div className="w-full h-full overflow-hidden shadow-xl sm:shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=700&q=80" alt="Nipa Hut Villa Del Prado Sariaya Quezon" className="w-full h-full object-cover" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=700&q=80" alt="Nipa Hut Demo Beach Resort Batangas" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
             <div className="absolute bottom-0 right-0 overflow-hidden shadow-lg sm:shadow-xl" style={{ width: '42%', height: '42%', border: '3px solid #f5f3ee' }}>
-              <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&q=80" alt="Swimming pool Villa Del Prado" className="w-full h-full object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&q=80" alt="Swimming pool Demo Beach Resort" className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="absolute z-10 text-white px-3 py-2 shadow-lg" style={{ bottom: '41%', left: 6, background: `linear-gradient(to bottom right, ${BRAND.primary}, ${BRAND.primaryDark})` }}>
               <div className="text-white/60 text-[7px] tracking-widest uppercase font-bold">Est.</div>
-              <div className="font-black text-lg leading-none">Sariaya</div>
+              <div className="font-black text-lg leading-none">Batangas</div>
             </div>
           </div>
           <div className="sr sr-d2">
@@ -1048,10 +1046,10 @@ export default function Home() {
               Quezon's Most<br /><span style={{ color: BRAND.primary }}>Beloved Escape.</span>
             </h2>
             <p className="text-neutral-400 leading-relaxed mb-4 text-sm font-light">
-              Nestled along the shores of <strong className="text-neutral-700 font-semibold">Sariaya, Quezon Province</strong>, Villa Del Prado Beach Resort blends authentic Filipino hospitality with full resort amenities.
+              Nestled along the shores of <strong className="text-neutral-700 font-semibold">Batangas Province</strong>, Demo Beach Resort blends authentic Filipino hospitality with full resort amenities.
             </p>
             <p className="text-neutral-400 leading-relaxed mb-7 text-sm font-light">
-              From <strong className="text-neutral-700 font-semibold">nipa hut cabanas</strong> on the water's edge to air-conditioned deluxe rooms with sea views — every corner is crafted for comfort.
+              From <strong className="text-neutral-700 font-semibold">Hut</strong> on the water's edge to air-conditioned deluxe rooms with sea views — every corner is crafted for comfort.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/accommodations" className="btn-primary">See Rooms & Rates</Link>
@@ -1084,7 +1082,7 @@ export default function Home() {
                 style={{ boxShadow: '0 2px 16px rgba(0,0,0,.06)', background: '#fff' }}
                 onClick={() => setSelectedRoom(room)}>
                 <div className="relative overflow-hidden" style={{ height: 200 }}>
-                  <img src={room.img} alt={`${room.name} at Villa Del Prado`} className="room-img w-full h-full object-cover" loading="lazy" />
+                  <img src={room.img} alt={`${room.name} at Demo Beach Resort`} className="room-img w-full h-full object-cover" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <span className={`absolute top-3 left-3 ${room.tagBg} ${room.tagText} text-[8px] font-extrabold tracking-[.15em] uppercase px-2.5 py-1`}>{room.tag}</span>
                 </div>
@@ -1109,10 +1107,6 @@ export default function Home() {
 
       {/* ═══ AMENITIES ═══ */}
       <AmenitiesSection />
-
-
-
-
 
       {/* ═══ GALLERY ═══ */}
       <section className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-[10%]" style={{ background: '#f5f3ee' }}>

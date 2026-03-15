@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 // ─── ENTRANCE RATES ───────────────────────────────────────────────────────────
 const entranceRates = [
-  { label: 'Adults',                  dayTour: 'Php 130', overnight: 'Php 150' },
-  { label: 'Children (below 4.5 ft)', dayTour: 'Php 110', overnight: 'Php 130' },
-  { label: 'Senior / PWD',            dayTour: 'Php 104', overnight: 'Php 120' },
+  { label: 'Adults',                  dayTour: 'Php 300', overnight: 'Php 600' },
+  { label: 'Children (below 4.5 ft)', dayTour: 'Php 200', overnight: 'Php 500' },
+  { label: 'Senior / PWD',            dayTour: 'Php 100', overnight: 'Php 400 ' },
 ];
 
 // ─── ALL CARDS ────────────────────────────────────────────────────────────────
@@ -29,233 +29,233 @@ const cards: Card[] = [
     id: 'entrance',
     category: 'Entrance',
     name: 'Entrance Fee',
-    dayTourRate: 'From Php 104',
-    overnightRate: 'From Php 120',
+    dayTourRate: 'From Php 125',
+    overnightRate: 'From Php 145',
     capacity: 'All guests',
     img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
     tag: 'Gate Fee',
-    desc: 'Admission rates for Villa Del Prado Beach Resort. All guests must pay the entrance fee in addition to accommodation.',
+    desc: 'Begin your escape at Demo Beach Resort. All guests are welcomed with access to our pristine shores, lush resort grounds, and world-class facilities upon entry.',
     amenities: ['Pool Access', 'Beach Access', 'Resort Grounds', 'Parking'],
   },
   // ── Huts ──────────────────────────────────────────────────────────────────
   {
     id: 'hut-fiberglass',
     category: 'Huts',
-    name: 'Fiberglass Hut',
-    dayTourRate: 'Php 1,000',
-    overnightRate: 'Php 1,300',
+    name: 'Coastal Cabana',
+    dayTourRate: 'Php 1,200',
+    overnightRate: 'Php 1,560',
     capacity: '8–16 persons',
     img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80',
     tag: 'Hut',
-    desc: 'Sturdy fiberglass huts perfect for larger groups, with ample shade and easy beach access.',
+    desc: 'A refined open-air retreat crafted for larger parties, our fiberglass huts offer generous shade, seamless beach access, and a relaxed yet elevated seaside ambiance.',
     amenities: ['Beach Nearby', 'Fan-cooled', 'Communal Area', 'Outdoor Seating'],
   },
   {
     id: 'hut-native-behind',
     category: 'Huts',
-    name: 'Native Hut Behind Fiberglass Huts',
-    dayTourRate: 'Php 1,300',
-    overnightRate: 'Php 1,600',
+    name: 'Garden Nipa Retreat',
+    dayTourRate: 'Php 1,560',
+    overnightRate: 'Php 1,920',
     capacity: '6–12 persons',
     img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80',
     tag: 'Hut',
-    desc: 'Authentic nipa hut nestled behind the fiberglass huts, offering a more private and shaded retreat.',
+    desc: 'Tucked discreetly behind the fiberglass huts, this authentic nipa retreat envelops guests in natural tranquility — a secluded sanctuary where privacy meets timeless Filipino craftsmanship.',
     amenities: ['Natural Ventilation', 'Hammock Area', 'Shaded', 'Communal Space'],
   },
   {
     id: 'hut-native-duplex',
     category: 'Huts',
-    name: 'Native Hut Near Duplex',
-    dayTourRate: 'Php 1,300',
-    overnightRate: 'Php 1,600',
+    name: 'Veranda Nipa Cottage',
+    dayTourRate: 'Php 1,560',
+    overnightRate: 'Php 1,920',
     capacity: '6–12 persons',
     img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80',
     tag: 'Hut',
-    desc: 'Traditional native hut conveniently located near the duplex rooms, blending rustic charm with easy resort access.',
+    desc: 'This elegantly positioned native hut marries rustic charm with convenience, offering sweeping resort views and effortless access to our premium duplex wing.',
     amenities: ['Natural Ventilation', 'Shaded Porch', 'Resort Views', 'Communal Area'],
   },
   {
     id: 'hut-papag-beach',
     category: 'Huts',
-    name: 'Native Hut Papag Beach Front',
-    dayTourRate: 'Php 1,700',
-    overnightRate: 'Php 2,000',
+    name: 'Shoreline Papag Sanctuary',
+    dayTourRate: 'Php 2,040',
+    overnightRate: 'Php 2,400',
     capacity: '6–12 persons',
     img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
     tag: 'Beach Front',
     popular: true,
-    desc: 'Prime beachfront nipa hut with direct sand access and unobstructed sea views — the most sought-after hut.',
+    desc: 'Our most coveted hut, perched directly on the sand with unobstructed panoramic sea views. Fall asleep to the rhythm of the waves and wake up to a private slice of paradise.',
     amenities: ['Beachfront', 'Sea View', 'Natural Ventilation', 'Hammock Area', 'Private Porch'],
   },
   {
     id: 'hut-papag-pool',
     category: 'Huts',
-    name: 'Native Hut Papag Poolside',
-    dayTourRate: 'Php 1,700',
-    overnightRate: 'Php 2,000',
+    name: 'Lagoon Papag Retreat',
+    dayTourRate: 'Php 2,040',
+    overnightRate: 'Php 2,400',
     capacity: '6–12 persons',
     img: 'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80',
     tag: 'Poolside',
-    desc: 'Charming nipa hut right beside the pool, ideal for families who want quick dips between relaxing in the hut.',
+    desc: 'Gracefully situated at the pool\'s edge, this nipa hut invites effortless leisure — savour a cool breeze from your shaded porch before stepping straight into crystal-clear waters.',
     amenities: ['Pool Access', 'Natural Ventilation', 'Shaded Porch', 'Resort Views'],
   },
   // ── Rooms ──────────────────────────────────────────────────────────────────
   {
     id: 'room-standard-fan',
     category: 'Rooms',
-    name: 'Standard Room Fan',
-    dayTourRate: 'Php 2,200',
-    overnightRate: 'Php 2,700',
+    name: 'Breeze Standard Room',
+    dayTourRate: 'Php 2,640',
+    overnightRate: 'Php 3,240',
     capacity: '2–4 persons',
     img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
     tag: 'Standard',
     popular: true,
-    desc: 'Comfortable fan-cooled standard room — great value for couples or small groups looking for a cozy stay.',
+    desc: 'Thoughtfully appointed and naturally ventilated, our Standard Fan Room offers a serene haven for couples and intimate groups — understated elegance at exceptional value.',
     amenities: ['Fan-cooled', 'Private Bathroom', 'Wi-Fi', 'Housekeeping'],
   },
   {
     id: 'room-standard-ac',
     category: 'Rooms',
-    name: 'Standard Room Air-Conditioned',
-    dayTourRate: 'Php 2,600',
-    overnightRate: 'Php 3,100',
+    name: 'Comfort Standard Room',
+    dayTourRate: 'Php 3,120',
+    overnightRate: 'Php 3,720',
     capacity: '2–4 persons',
     img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
     tag: 'Standard',
-    desc: 'Air-conditioned standard room for a cool, restful night after a day on the beach.',
+    desc: 'Drift into restful sleep in our climate-controlled Standard Room, where cool comfort and refined furnishings create the perfect retreat after a sun-drenched day by the sea.',
     amenities: ['Air-Conditioned', 'Private Bathroom', 'Wi-Fi', 'Housekeeping'],
   },
   {
     id: 'room-duplex-fan',
     category: 'Rooms',
-    name: 'Duplex Room Fan',
-    dayTourRate: 'Php 3,500',
-    overnightRate: 'Php 4,000',
+    name: 'Seawind Duplex Suite',
+    dayTourRate: 'Php 4,200',
+    overnightRate: 'Php 4,800',
     capacity: '4–10 persons',
     img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
     tag: 'Duplex',
-    desc: 'Spacious fan-cooled duplex room ideal for large families or groups wanting more space.',
+    desc: 'Expansive and graciously ventilated, our Duplex Fan Room is crafted for discerning families and groups who value generous space, a private balcony, and an unhurried coastal lifestyle.',
     amenities: ['Fan-cooled', 'Multiple Beds', 'Private Bathroom', 'Balcony'],
   },
   {
     id: 'room-duplex-ac-a',
     category: 'Rooms',
-    name: 'Duplex Room Air-Conditioned "A"',
-    dayTourRate: 'Php 4,500',
-    overnightRate: 'Php 5,000',
+    name: 'Grand Duplex Suite "A"',
+    dayTourRate: 'Php 5,400',
+    overnightRate: 'Php 6,000',
     capacity: '4–10 persons',
     img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
     tag: 'Duplex',
-    desc: 'Premium air-conditioned duplex room variant A — cool, roomy, and perfect for extended stays.',
+    desc: 'A premium air-conditioned sanctuary for larger groups, Duplex A combines generous proportions, resort-view balcony access, and cool comfort — an indulgent base for an unforgettable stay.',
     amenities: ['Air-Conditioned', 'Multiple Beds', 'Private Bathroom', 'Balcony', 'Resort View'],
   },
   {
     id: 'room-duplex-ac-b',
     category: 'Rooms',
-    name: 'Duplex Room Air-Conditioned "B"',
-    dayTourRate: 'Php 4,800',
-    overnightRate: 'Php 5,300',
+    name: 'Grand Duplex Suite "B"',
+    dayTourRate: 'Php 5,760',
+    overnightRate: 'Php 6,360',
     capacity: '4–10 persons',
     img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
     tag: 'Duplex',
-    desc: 'Top-tier duplex room variant B with premium fittings and extra space for large groups.',
+    desc: 'The pinnacle of our duplex collection, Variant B offers lavish space, premium fittings, and serene garden vistas — an exquisite retreat for groups who refuse to compromise on luxury.',
     amenities: ['Air-Conditioned', 'Multiple Beds', 'Private Bathroom', 'Balcony', 'Garden View'],
   },
   {
     id: 'room-villa-double',
     category: 'Villas',
-    name: 'Resort Villas Double',
-    dayTourRate: 'Php 4,000',
-    overnightRate: 'Php 4,500',
+    name: 'Palmera Villa – Double',
+    dayTourRate: 'Php 4,800',
+    overnightRate: 'Php 5,400',
     capacity: '4–8 persons',
     img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80',
     tag: 'Villa',
-    desc: 'Elegant resort villa with double bed configuration — refined comfort in a lush resort setting.',
+    desc: 'Nestled within verdant resort grounds, our Double Villa exudes refined sophistication — a beautifully appointed escape where lush surroundings and curated comforts converge in perfect harmony.',
     amenities: ['Air-Conditioned', 'Double Bed', 'Private Bathroom', 'Balcony', 'Villa Views'],
   },
   {
     id: 'room-villa-king',
     category: 'Villas',
-    name: 'Resort Villas King',
-    dayTourRate: 'Php 4,000',
-    overnightRate: 'Php 4,500',
+    name: 'Palmera Villa – King',
+    dayTourRate: 'Php 4,800',
+    overnightRate: 'Php 5,400',
     capacity: '4–8 persons',
     img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80',
     tag: 'Villa',
-    desc: 'Elegant resort villa with a king bed — ideal for couples seeking a premium, private retreat.',
+    desc: 'Indulge in the ultimate couples\' retreat. Our King Villa offers a sumptuous king bed, private balcony, and an atmosphere of intimate elegance — where every detail is designed to enchant.',
     amenities: ['Air-Conditioned', 'King Bed', 'Private Bathroom', 'Balcony', 'Villa Views'],
   },
   {
     id: 'room-family',
     category: 'Rooms',
-    name: 'Family Room',
-    dayTourRate: 'Php 7,000',
-    overnightRate: 'Php 7,500',
+    name: 'Sanctuary Family Suite',
+    dayTourRate: 'Php 8,400',
+    overnightRate: 'Php 9,000',
     capacity: '4–8 persons',
     img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
     tag: 'Best Value',
-    desc: 'Spacious family room with modern comforts and ample sleeping space — perfect for the whole family.',
+    desc: 'Thoughtfully designed for the entire family, this expansive room blends modern luxury with warm, welcoming interiors — generous sleeping quarters, a private living area, and serene garden views await.',
     amenities: ['Air-Conditioned', 'Multiple Beds', 'Family Bathroom', 'Living Area', 'Garden View'],
   },
   {
     id: 'room-dormitory',
     category: 'Rooms',
-    name: 'Dormitory',
-    dayTourRate: 'Php 8,500',
-    overnightRate: 'Php 9,000',
+    name: 'The Grand Lodge',
+    dayTourRate: 'Php 10,200',
+    overnightRate: 'Php 10,800',
     capacity: '8–16 persons',
     img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
     tag: 'Group',
-    desc: 'Large dormitory-style accommodation for big groups — the most cost-effective option for parties and events.',
+    desc: 'Our air-conditioned dormitory is a masterclass in collective luxury — an impressively appointed group accommodation that delivers premium comfort and unbeatable value for celebrations and large gatherings.',
     amenities: ['Air-Conditioned', 'Bunk Beds', 'Shared Bathroom', 'Group Space'],
   },
   // ── Hall ───────────────────────────────────────────────────────────────────
   {
     id: 'hall-whole-lower',
     category: 'Events',
-    name: 'Hall Whole Floor – Lower Level',
-    dayTourRate: 'Php 18,000',
-    overnightRate: 'Php 23,000',
+    name: 'The Grand Ballroom – Lower Level',
+    dayTourRate: 'Php 21,600',
+    overnightRate: 'Php 27,600',
     capacity: '100–150 persons',
     img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
     tag: 'Full Hall',
-    desc: 'Full lower-level function hall for grand celebrations — weddings, debuts, reunions, and corporate events.',
+    desc: 'Command the entire lower-level function hall for your grandest occasions. From lavish weddings to prestigious corporate galas, this full-floor venue sets an unrivalled stage for memories that endure.',
     amenities: ['Up to 150 pax', 'Sound System', 'Air-Conditioned', 'Catering Available', 'Stage Setup', 'Parking'],
   },
   {
     id: 'hall-whole-upper',
     category: 'Events',
-    name: 'Hall Whole Floor – Upper Level',
-    dayTourRate: 'Php 18,000',
-    overnightRate: 'Php 23,000',
+    name: 'The Grand Ballroom – Upper Level',
+    dayTourRate: 'Php 21,600',
+    overnightRate: 'Php 27,600',
     capacity: '100–150 persons',
     img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
     tag: 'Full Hall',
-    desc: 'Full upper-level function hall with elevated views — a stunning backdrop for your special event.',
+    desc: 'Elevated in every sense, the upper-level function hall offers sweeping resort panoramas as the backdrop to your most cherished celebrations — an extraordinary venue for an extraordinary event.',
     amenities: ['Up to 150 pax', 'Sound System', 'Air-Conditioned', 'Catering Available', 'Upper Level View'],
   },
   {
     id: 'hall-half-lower',
     category: 'Events',
-    name: 'Hall Half Floor – Lower Level',
-    dayTourRate: 'Php 10,000',
-    overnightRate: 'Php 13,000',
+    name: 'The Prestige Hall – Lower Level',
+    dayTourRate: 'Php 12,000',
+    overnightRate: 'Php 15,600',
     capacity: '50–80 persons',
     img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
     tag: 'Half Hall',
-    desc: 'Half of the lower-level function hall for mid-size gatherings — ideal for intimate celebrations.',
+    desc: 'An intimate yet impressively appointed half-floor venue for mid-size soirées and milestone gatherings — where every guest feels celebrated in an atmosphere of understated refinement.',
     amenities: ['Up to 80 pax', 'Sound System', 'Air-Conditioned', 'Catering Available', 'Flexible Layout'],
   },
   {
     id: 'hall-quarter-lower',
     category: 'Events',
-    name: 'Hall 1/4 Floor – Lower Level',
-    dayTourRate: 'Php 7,000',
-    overnightRate: 'Php 9,000',
+    name: 'The Intimate Salon – Lower Level',
+    dayTourRate: 'Php 8,400',
+    overnightRate: 'Php 10,800',
     capacity: '20–50 persons',
     img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
     tag: 'Quarter Hall',
-    desc: 'Quarter section of the lower-level hall — perfect for small gatherings, meetings, or intimate parties.',
+    desc: 'Perfectly scaled for exclusive private dining, executive meetings, or intimate gatherings, our quarter-floor venue delivers a polished, air-conditioned setting with bespoke catering arrangements.',
     amenities: ['Up to 50 pax', 'Air-Conditioned', 'Catering Available', 'Flexible Setup'],
   },
 ];
@@ -586,28 +586,29 @@ function PoliciesSection() {
 
 // ─── LOCATION SECTION ────────────────────────────────────────────────────────
 function LocationSection() {
-  const lat = 13.8484124;
-  const lng = 121.4862107;
-  const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d${lng}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd37b21eb4484f%3A0x460e574fb19ac4f3!2sVilla%20Del%20Prado%20Pool%20and%20Beach%20Resort!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph`;
+  const lat = 12.8797;
+  const lng = 121.7740;
+
+  const mapSrc = `https://www.google.com/maps?q=${lat},${lng}&hl=en&z=5&output=embed`;
 
   const directions = [
     {
       icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-3"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>,
       from: 'Via SLEX',
       time: '2.5–3 hrs',
-      desc: 'SLEX → Lucena Exit → Sariaya → coastal road to Talaan Aplaya.',
+      desc: 'SLEX → Destination A Exit → Destination B → Destination C.',
     },
     {
       icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="22" height="13" rx="2"/><path d="M5 16v2"/><path d="M19 16v2"/><path d="M1 10h22"/></svg>,
       from: 'Bus from Manila',
       time: '3–4 hrs',
-      desc: 'JAM or Lucena-bound bus. Alight at Sariaya terminal, then tricycle to resort.',
+      desc: 'Terminal bus. Alight at Destination A terminal, then tricycle to resort.',
     },
     {
       icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>,
-      from: 'From Lucena City',
+      from: 'From Destination A',
       time: '~30 mins',
-      desc: 'Jeepney or van from Lucena Grand Terminal to Sariaya, then tricycle.',
+      desc: 'Jeepney or van from Destination A to Destination B, then tricycle.',
     },
   ];
 
@@ -617,9 +618,9 @@ function LocationSection() {
         <div className="sr mb-8">
           <span className="accom-section__tag">How to Get Here</span>
           <h2 className="accom-section__heading">
-            Find <span>Villa Del Prado.</span>
+            Find <span>Demo Beach Resort.</span>
           </h2>
-          <p className="text-neutral-400 text-sm font-light mt-1 m-0">Sariaya, Quezon Province — a few hours south of Manila.</p>
+          <p className="text-neutral-400 text-sm font-light mt-1 m-0">Batangas — a few hours south of Manila.</p>
         </div>
 
         <div className="sr accom-location__map-wrap">
@@ -631,13 +632,13 @@ function LocationSection() {
                 </svg>
               </span>
               <div className="min-w-0">
-                <div className="text-xs font-bold text-neutral-800 truncate">Villa Del Prado Pool and Beach Resort</div>
-                <div className="text-[10px] text-neutral-400 font-medium">Sitio Kanluran, Brgy. Talaan Aplaya, Sariaya, Quezon</div>
+                <div className="text-xs font-bold text-neutral-800 truncate">Demo Pool and Beach Resort</div>
+                <div className="text-[10px] text-neutral-400 font-medium">Philippines</div>
               </div>
             </div>
           </div>
           <iframe
-            title="Villa Del Prado Location"
+            title="Demo Beach Resort Location"
             src={mapSrc}
             width="100%"
             height="380"
@@ -659,7 +660,7 @@ function LocationSection() {
             <div>
               <div className="accom-section__tag" style={{ fontSize: '9px', letterSpacing: '0.18em', marginBottom: '0.25rem' }}>Address</div>
               <p className="text-[11px] text-neutral-500 font-light leading-relaxed m-0">
-                Sitio Kanluran<br/>Brgy. Talaan Aplaya<br/>Sariaya, 4322 Quezon
+                Purok 1<br/>Brgy. Demo<br/>Batangas
               </p>
               <div className="flex flex-col gap-1 mt-3 pt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}>
                 {[
@@ -736,7 +737,7 @@ export default function Accommodations() {
 
           <p className="accom-hero__subtitle">
             Every stay is a memory. Browse our curated collection of huts, rooms,
-            villas, and event halls at Villa Del Prado.
+            villas, and event halls at Demo Beach Resort.
           </p>
 
           <div className="accom-hero__browse">
@@ -842,7 +843,7 @@ export default function Accommodations() {
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link to="/booking" className="accom-cta__book-btn">Reserve Now</Link>
               <a
-                href="https://www.facebook.com/villadelpradoresort"
+                href="https://www.facebook.com/eleazar.rosete.2024/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="accom-cta__msg-btn"

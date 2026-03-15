@@ -59,36 +59,36 @@ const IconImage = ({ className = '' }: { className?: string }) => (
 );
 
 // ─── NAV BUTTON ───────────────────────────────────────────────────────────────
-function NavBtn({ dir, onClick, disabled }: { dir: 'prev' | 'next'; onClick: () => void; disabled: boolean }) {
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`gallery-nav-btn${disabled ? ' gallery-nav-btn--disabled' : ''}`}
-      onMouseEnter={e => {
-        if (!disabled) e.currentTarget.classList.add('gallery-nav-btn--hovered');
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.classList.remove('gallery-nav-btn--hovered');
-      }}
-    >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-        stroke="white" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter">
-        {dir === 'next' ? (
-          <>
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <polyline points="13 5 20 12 13 19" />
-          </>
-        ) : (
-          <>
-            <line x1="20" y1="12" x2="4" y2="12" />
-            <polyline points="11 5 4 12 11 19" />
-          </>
-        )}
-      </svg>
-    </button>
-  );
-}
+// function NavBtn({ dir, onClick, disabled }: { dir: 'prev' | 'next'; onClick: () => void; disabled: boolean }) {
+//   return (
+//     <button
+//       onClick={onClick}
+//       disabled={disabled}
+//       className={`gallery-nav-btn${disabled ? ' gallery-nav-btn--disabled' : ''}`}
+//       onMouseEnter={e => {
+//         if (!disabled) e.currentTarget.classList.add('gallery-nav-btn--hovered');
+//       }}
+//       onMouseLeave={e => {
+//         e.currentTarget.classList.remove('gallery-nav-btn--hovered');
+//       }}
+//     >
+//       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+//         stroke="white" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter">
+//         {dir === 'next' ? (
+//           <>
+//             <line x1="4" y1="12" x2="20" y2="12" />
+//             <polyline points="13 5 20 12 13 19" />
+//           </>
+//         ) : (
+//           <>
+//             <line x1="20" y1="12" x2="4" y2="12" />
+//             <polyline points="11 5 4 12 11 19" />
+//           </>
+//         )}
+//       </svg>
+//     </button>
+//   );
+// }
 
 // ─── LIGHTBOX ─────────────────────────────────────────────────────────────────
 function Lightbox({
@@ -168,13 +168,13 @@ function Lightbox({
           <div className="gallery-lightbox__footer-right">
             <div className="gallery-lightbox__location">
               <IconMapPin className="w-3 h-3" />
-              Villa Del Prado · Sariaya, Quezon
+              Demo Beach Resort · Batangas
             </div>
             {/* Bottom nav — visible on mobile only */}
-            <div className="gallery-lightbox__nav">
+            {/* <div className="gallery-lightbox__nav">
               <NavBtn dir="prev" onClick={onPrev} disabled={index === 0} />
               <NavBtn dir="next" onClick={onNext} disabled={index === total - 1} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -322,7 +322,7 @@ export default function Gallery() {
         <div className="gallery-hero__bg-wrap">
           <img
             src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1920&q=80&auto=format"
-            alt="Villa Del Prado Beach"
+            alt="Demo Beach Resort"
             className="gallery-hero__img"
           />
           <div className="gallery-hero__overlay-base" />

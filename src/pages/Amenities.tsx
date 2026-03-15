@@ -23,7 +23,7 @@ const amenityCategories: AmenityCategory[] = [
     category: 'Water & Beach',
     tagline: 'Where every day starts with salt air and sunshine',
     items: [
-      { name: 'Private Beach Access', highlight: '500m of White Sand', desc: 'Step directly onto our exclusive 500-meter stretch of fine white sand beach. Reserved solely for Villa Del Prado guests, the shoreline offers calm, clean waters perfect for swimming, wading, or simply basking in the sun.', tags: ['Exclusive', 'All-Day Access', 'Clean Waters'] },
+      { name: 'Private Beach Access', highlight: '500m of White Sand', desc: 'Step directly onto our exclusive 500-meter stretch of fine white sand beach. Reserved solely for Demo Beach Resort guests, the shoreline offers calm, clean waters perfect for swimming, wading, or simply basking in the sun.', tags: ['Exclusive', 'All-Day Access', 'Clean Waters'] },
       { name: 'Swimming Pool & Water Slide', highlight: 'Main Pool with Thrilling Slide', desc: 'Our large main swimming pool is the heart of resort activity. Cool off between beach sessions, race down the water slide, or lounge on the pool deck with a cold drink in hand. Suitable for all ages.', tags: ['All Ages', 'Water Slide', 'Pool Deck'] },
       { name: 'Kiddie Pool', highlight: 'Safe & Shallow for Little Ones', desc: 'Designed specifically for toddlers and young children, our kiddie pool offers a safe, supervised environment with shallow water depth and gentle features so the youngest guests can splash freely.', tags: ['Toddler Safe', 'Supervised', 'Shallow Depth'] },
       { name: 'Kayaking', highlight: 'Explore the Coastline', desc: 'Paddle at your own pace along the scenic shoreline aboard our single and double kayaks. Equipment and basic orientation provided. Ideal for a peaceful morning adventure or an energetic afternoon on the water.', tags: ['Equipment Provided', 'Single & Double', 'Self-Guided'] },
@@ -38,10 +38,10 @@ const amenityCategories: AmenityCategory[] = [
     items: [
       { name: 'Beach Volleyball', highlight: 'Court Set Up on the Sand', desc: "Challenge friends or join an impromptu match on our dedicated beach volleyball court. Set directly on the sand for authentic beach play, it's a favorite for both casual rallies and competitive games.", tags: ['Sand Court', 'Equipment Provided', 'All Skill Levels'] },
       { name: 'Basketball Court', highlight: 'Full Outdoor Court', desc: 'Our full-sized outdoor basketball court is available throughout the day for pick-up games, free throws, or organized team competitions. Great for groups looking to burn energy between swim sessions.', tags: ['Full Court', 'Outdoor', 'Day & Evening'] },
-      { name: 'Fishing', highlight: 'With Local Expert Guides', desc: "Experience traditional Filipino fishing alongside our knowledgeable local guides. Whether you're a seasoned angler or first-timer, the waters off Sariaya offer a rewarding and authentic fishing experience.", tags: ['Local Guides', 'All Experience Levels', 'Catch Available'] },
+      { name: 'Fishing', highlight: 'With Local Expert Guides', desc: "Experience traditional Filipino fishing alongside our knowledgeable local guides. Whether you're a seasoned angler or first-timer, the waters off Batangas offer a rewarding and authentic fishing experience.", tags: ['Local Guides', 'All Experience Levels', 'Catch Available'] },
       { name: 'Beach Jogging', highlight: 'Scenic Morning Shoreline Runs', desc: 'Start your day with an invigorating jog along our 500-meter private shoreline. The compact sand and cool morning breeze make for an ideal running environment as the sun rises over the bay.', tags: ['Morning Recommended', 'Scenic Route', 'Free'] },
       { name: 'Sunrise Watching', highlight: 'Guided Spots with Coffee Service', desc: "Wake up early for one of nature's most spectacular shows. Our staff can direct you to the best viewing spots on property, and we offer early-morning coffee service so you can enjoy the spectacle in comfort.", tags: ['Coffee Service', 'Best Spot Guidance', 'Free'] },
-      { name: 'Bike Rental', highlight: 'Explore the Resort & Surrounds', desc: 'Rent a bicycle and cruise around the resort grounds or venture out to explore the quiet coastal roads of Sariaya. A relaxed and eco-friendly way to discover the area at your own pace.', tags: ['Hourly Rental', 'Helmets Included', 'Resort & Nearby Area'] },
+      { name: 'Bike Rental', highlight: 'Explore the Resort & Surrounds', desc: 'Rent a bicycle and cruise around the resort grounds or venture out to explore the quiet coastal roads of Batangas Bay Walk. A relaxed and eco-friendly way to discover the area at your own pace.', tags: ['Hourly Rental', 'Helmets Included', 'Resort & Nearby Area'] },
     ],
   },
   {
@@ -53,7 +53,7 @@ const amenityCategories: AmenityCategory[] = [
       { name: 'Beach Bar', highlight: 'Cocktails & Drinks Beachside', desc: 'Sip on refreshing fresh juices, classic cocktails, cold beers, and specialty drinks without leaving the beach. Our open-air beach bar is the perfect spot to unwind as the afternoon sun dips toward the horizon.', tags: ['Open Air', 'Fresh Juices', 'Cocktails & Beer'] },
       { name: 'Videoke / KTV Night', highlight: 'Private KTV Room Available', desc: 'Gather your group for an unforgettable evening of song in our dedicated KTV room. With an extensive song library spanning OPM, pop, and classic hits, videoke nights are a beloved Filipino tradition done right.', tags: ['Private Room', 'OPM & International', 'Bookable by Groups'] },
       { name: 'Beachside BBQ', highlight: 'Grill Your Own or Use Our Package', desc: 'Nothing beats the smell of grilled seafood by the ocean. Choose from our BBQ packages or grill your own fresh catch. We provide the setup, charcoal, and tools — you bring the appetite.', tags: ['BBQ Packages', 'Grill Your Own Catch', 'Evening Sessions'] },
-      { name: 'Night Market', highlight: 'Weekend Local Food Stalls', desc: 'On select weekends, Villa Del Prado hosts a vibrant night market featuring local vendors selling street food, grilled specialties, and artisanal products from Sariaya and nearby communities.', tags: ['Weekends Only', 'Local Vendors', 'Street Food'] },
+      { name: 'Night Market', highlight: 'Weekend Local Food Stalls', desc: 'On select weekends, Demo Beach Resort hosts a vibrant night market featuring local vendors selling street food, grilled specialties, and artisanal products from Batangas and nearby communities.', tags: ['Weekends Only', 'Local Vendors', 'Street Food'] },
       { name: 'Live Music', highlight: 'Weekend Performances', desc: 'Enjoy live acoustic performances by talented local artists every weekend evening. From mellow folk to upbeat OPM covers, the music sets the perfect mood for a relaxed beachside night.', tags: ['Weekends', 'Local Artists', 'OPM & Acoustic'] },
     ],
   },
@@ -64,9 +64,9 @@ const amenityCategories: AmenityCategory[] = [
     items: [
       { name: 'Beach Weddings', highlight: 'The Ocean as Your Backdrop', desc: 'Exchange vows with the sound of waves and the sea breeze as your witness. Our events team coordinates every detail — from floral arrangements to catering — so your beach wedding is as seamless as it is stunning.', tags: ['Full Coordination', 'Catering Available', 'Photography Spots'] },
       { name: 'Debut Parties', highlight: 'Unforgettable 18th Celebrations', desc: 'Celebrate 18 years in style with a debut package that includes venue dressing, catering options, sound system, and dedicated event staff. Our beachfront and function hall venues set the stage for a magical milestone.', tags: ['Venue Dressing', 'Sound System', 'Full Coordination'] },
-      { name: 'Family Reunions', highlight: 'Spacious Venues for Large Groups', desc: 'Bring the whole family together at Villa Del Prado. Our expansive grounds, function halls, and outdoor areas can accommodate large family gatherings with space for games, dining, and creating lasting memories.', tags: ['Large Group Capacity', 'Indoor & Outdoor', 'Custom Packages'] },
+      { name: 'Family Reunions', highlight: 'Spacious Venues for Large Groups', desc: 'Bring the whole family together at Demo Beach Resort. Our expansive grounds, function halls, and outdoor areas can accommodate large family gatherings with space for games, dining, and creating lasting memories.', tags: ['Large Group Capacity', 'Indoor & Outdoor', 'Custom Packages'] },
       { name: 'Birthday Celebrations', highlight: 'Package Deals for All Ages', desc: "From children's beach parties to milestone adult birthdays, our team crafts personalized celebration packages. Choose from intimate beachside setups or grand function hall arrangements complete with decorations.", tags: ['All Ages', 'Custom Decoration', 'Catering Packages'] },
-      { name: 'Corporate Events', highlight: 'Team Buildings & Seminars', desc: 'Host your next corporate retreat, team-building activity, or company seminar at Villa Del Prado. Our facilities include air-conditioned function halls, presentation equipment, and tailored corporate packages.', tags: ['Function Hall', 'AV Equipment', 'Team Building Activities'] },
+      { name: 'Corporate Events', highlight: 'Team Buildings & Seminars', desc: 'Host your next corporate retreat, team-building activity, or company seminar at Demo Beach Resort. Our facilities include air-conditioned function halls, presentation equipment, and tailored corporate packages.', tags: ['Function Hall', 'AV Equipment', 'Team Building Activities'] },
       { name: 'School Outings', highlight: 'Educational Field Trips', desc: 'Provide students with an enriching outdoor experience combining beach activities, water sports, and nature appreciation. We offer supervised group rates and structured activity programs for school organizations.', tags: ['Group Rates', 'Supervised Activities', 'Program Available'] },
     ],
   },
@@ -223,7 +223,7 @@ export default function Amenities() {
 
           {/* Subtitle */}
           <p className="amenities-hero__subtitle">
-            Discover world-class beach resort amenities in Sariaya, Quezon —
+            Discover world-class beach resort amenities in Batangas —
             from private white-sand shores and water sports to beachside dining
             and full event facilities.
           </p>
@@ -404,7 +404,7 @@ export default function Amenities() {
                 Reserve Now
               </Link>
               <a
-                href="https://www.facebook.com/villadelpradoresort"
+                href="https://www.facebook.com/eleazar.rosete.2024/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="amenities-bottom-cta__msg-btn"

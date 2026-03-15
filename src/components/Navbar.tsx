@@ -58,7 +58,7 @@ export default function Navbar() {
                   : 'bg-white/20 text-white border border-white/40 backdrop-blur-sm',
               ].join(' ')}
             >
-              VP
+              BR
             </div>
             <div>
 <div
@@ -72,7 +72,7 @@ export default function Navbar() {
     letterSpacing: '0.13em', // increased for a more premium, airy feel
   }}
 >
-  Villa Del Prado
+  Demo Beach Resort
 </div>
               <div
                 className={[

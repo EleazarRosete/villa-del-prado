@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="lg:w-56 flex-shrink-0">
             <p className="text-[10px] tracking-[0.25em] uppercase text-stone-500 mb-1">Beach Resort</p>
             <div className="text-2xl font-bold tracking-tight leading-tight uppercase text-white">
-              Villa Del Prado
+              Beach Resort
             </div>
           </div>
 
@@ -41,7 +41,7 @@ export default function Footer() {
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
               <span className="text-[11px] tracking-[0.15em] uppercase text-stone-300">
-                Sariaya, Quezon Province, Philippines
+                Batangas, Philippines
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -49,15 +49,15 @@ export default function Footer() {
                 <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
               </svg>
               <a href="tel:+63000000000" className="text-[11px] tracking-[0.15em] uppercase text-stone-300 hover:text-white transition-colors">
-                +63 (0) 000-000-0000
+                +63 (0) 968-282-3420
               </a>
             </div>
             <div className="flex items-center gap-3">
               <svg className="w-4 h-4 flex-shrink-0 text-stone-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
               </svg>
-              <a href="mailto:info@villadelpradoresort.com" className="text-[11px] tracking-[0.15em] uppercase text-stone-300 hover:text-white transition-colors">
-                info@villadelpradoresort.com
+              <a href="mailto:ele.rosete@gmail.com" className="text-[11px] tracking-[0.15em] uppercase text-stone-300 hover:text-white transition-colors">
+                ele.rosete@gmail.com
               </a>
             </div>
             <div className="flex items-center gap-3">
@@ -75,7 +75,7 @@ export default function Footer() {
             {[
               {
                 label: 'Facebook',
-                href: 'https://www.facebook.com/villadelpradoresort',
+                href: 'https://www.facebook.com/eleazar.rosete.2024/',
                 icon: (
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -84,7 +84,7 @@ export default function Footer() {
               },
               {
                 label: 'Instagram',
-                href: 'https://www.instagram.com/villadel_prado',
+                href: 'https://www.instagram.com/dsgnbyzar/',
                 icon: (
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -120,12 +120,11 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-stone-700 mt-12 pt-7 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[10px] tracking-[0.2em] uppercase text-stone-500">
-            All Rights Reserved by Villa Del Prado Beach Resort 2025
+            All Rights Reserved by Demo Beach Resort 2025
           </p>
           <div className="flex gap-8 text-[10px] tracking-[0.2em] uppercase text-stone-500">
             <a href="#" className="hover:text-stone-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-stone-300 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-stone-300 transition-colors">Sitemap</a>
           </div>
         </div>
 
